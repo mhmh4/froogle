@@ -16,12 +16,12 @@ def getkey():
 openai.api_key = getkey()
 
 
-def call_chatgpt_api():
+def call_chatgpt_api(input):
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "user", "content": "I'll give ingredients, give me recipes, just list the recipe names as a numerical list, don't output anything else"},
-            {"role": "user", "content": "Chicken, Yams, Broccoli"},
+            {"role": "user", "content": f"{input}"},
         ]
     )
     return (completion.choices[0].message.content)
@@ -31,7 +31,7 @@ def call_chatgpt_api():
 def generate_recipes():
     query_string = str(request.query_string)
     print(query_string)
-    return call_chatgpt_api()
+    return call_chatgpt_api(query_string)
 
 def main():
     call_chatgpt_api()
