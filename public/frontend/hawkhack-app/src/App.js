@@ -106,12 +106,12 @@ function App() {
         <RouterProvider router={router} />
       </div>
 
+        <input type="text" placeholder="Name" style={{ width: "40%", height: 15}}
+          onChange={(event) => { setName(event.target.value); }}/>
         <div style={{ display: "flex", gridTemplateColumns: 'repeat(3, 1fr)' }}>
           {projects.map(projectMapper)}
         </div>    
         <div>
-        <input type="text" placeholder="Name" style={{ width: "80%" }}
-          onChange={(event) => { setName(event.target.value); }}/>
         <br></br>
         <br></br>
         <button style={
