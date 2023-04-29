@@ -96,8 +96,7 @@ function App() {
     setMessage(await response.text());
     
   }
-  x();
-  
+ 
   const [projects, setProjects] = useState([...defaultFoods]);
   const [name, setName] = useState("");
   const [calories, setCalories] = useState("");
@@ -107,8 +106,10 @@ function App() {
       <div>
         <RouterProvider router={router} />
       </div>
-    <p>{JSON.stringify(message)}</p>
-      <div>
+    
+        <p>Foods</p>
+        {projects.map(projectMapper)}
+        <div>
         <input type="text" placeholder="Name" style={{ width: "80%" }}
           onChange={(event) => { setName(event.target.value); }}/>
         <br></br>
@@ -123,10 +124,12 @@ function App() {
             name: name
           })
           setProjects(_projects)
+          x();
+          
         }}>Add Foods</button>
       </div>
-        <p>Foods</p>
-        {projects.map(projectMapper)}
+    
+      <p>{JSON.stringify(message)}</p>
     </div>
   );
 }

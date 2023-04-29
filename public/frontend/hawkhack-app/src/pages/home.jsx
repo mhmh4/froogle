@@ -15,7 +15,8 @@ import {
 export const Home = () => {
   return (
     <div>
-          <h2>HomePage</h2>
+        
+        <h2>HomePage</h2>
 
     </div>
   );
