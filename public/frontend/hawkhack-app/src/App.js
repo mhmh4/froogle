@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     path: "/",
     element: (
       <div>
-      <h1>Home Page</h1>
+      <h1>Froogle</h1>
       <Link to="/about"> About Us</Link>
       <Link to="/mainapp"> Mainapp</Link>
       <Link to="/placeholder">Placeholder</Link>
