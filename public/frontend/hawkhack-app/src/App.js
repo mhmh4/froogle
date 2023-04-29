@@ -19,11 +19,9 @@ const router = createBrowserRouter([
     element: (
       <div>
       <h1>Froogle</h1>
-      <div>
-      <Link to="/about" class="Nav-links"> About Us</Link>
-      <Link to="/mainapp" class="Nav-links"> Mainapp</Link>
-      <Link to="/placeholder" class="Nav-links">Placeholder</Link>
-      </div>
+      <Link to="/about"> About Us</Link>
+      <Link to="/mainapp"> Mainapp</Link>
+      <Link to="/placeholder">Placeholder</Link>
     </div>
     ),
     
@@ -107,16 +105,8 @@ function App() {
       <div>
         <RouterProvider router={router} />
       </div>
-<<<<<<< Updated upstream
 
         <input type="text" placeholder="Name" style={{ width: "40%", height: 15}}
-=======
-    
-        <p className="food" id="food">Foods</p>
-        {projects.map(projectMapper)}
-        <div>
-        <input type="text" placeholder="Name" style={{ width: "80%" }}
->>>>>>> Stashed changes
           onChange={(event) => { setName(event.target.value); }}/>
         <div style={{ display: "flex", gridTemplateColumns: 'repeat(3, 1fr)' }}>
           {projects.map(projectMapper)}
