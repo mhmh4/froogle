@@ -99,19 +99,16 @@ function App() {
       <div>
         <RouterProvider router={router} />
       </div>
-      <p>Foods</p>
-      {projects.map(projectMapper)}
 
       <div>
         <input type="text" placeholder="Name" style={{ width: "80%" }}
           onChange={(event) => { setName(event.target.value); }}/>
         <br></br>
         <br></br>
-        <input type="text" placeholder="Calories" style={{ width: "80%" }}
-        onChange={(event) => { setCalories(event.target.value); }}/>
-        <br></br>
-        <br></br>
-        <button style={{ fontSize: 20 }} onClick={() => {
+        <button style={
+          { fontSize: 20,
+            color: 'white',
+            backgroundColor: "#71697A" }} onClick={() => {
           let _projects = [...projects];
 
           _projects.push({
@@ -120,6 +117,8 @@ function App() {
           setProjects(_projects)
         }}>Add Foods</button>
       </div>
+        <p>Foods</p>
+        {projects.map(projectMapper)}
     </div>
   );
 }
