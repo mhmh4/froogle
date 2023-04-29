@@ -6,10 +6,11 @@ from flask import Flask
 app = Flask(__name__)
 
 def getkey():
-  with open("secrets1/key.txt") as f:
+  with open("secrets/key.txt") as f:
     return f.read()
 
 
+openai.api_key = getkey()
 
 completion = openai.ChatCompletion.create(
   model="gpt-3.5-turbo",
@@ -20,8 +21,6 @@ completion = openai.ChatCompletion.create(
 
   ]
 )
-# print(f"{x=}")
-
 response = completion.choices[0].message.content
 
 print(response)
