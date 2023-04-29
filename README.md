@@ -5,4 +5,8 @@ TODO:
 	:x: 
 	:x: 
 
+Front:
+	:x: Get basic front end working
+	:x: Sketch it out
+
 	:x: design 
