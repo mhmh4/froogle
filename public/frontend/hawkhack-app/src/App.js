@@ -70,15 +70,14 @@ const defaultFoods = [{
 
 const projectMapper = (project) => {
   const projectStyle = {
-    backgroundColor: "rgba(255,200,200,50)",
-    width: "50%",
-    marginLeft: "25%",
-    borderRadius: 10
+    border: '1.5px solid #eee',
+    width: "150px",
+    borderRadius: 12,
   }
   return (<>
     <br></br>
     <div style={projectStyle}>
-      <p style={{ fontWeight: "bold", color:"red" }}>{project.name}</p>
+      <p style={{ fontWeight: "bold", }}>{project.name}</p>
       <p>{project.calories}</p>
     </div>
   </>)
@@ -106,19 +105,21 @@ function App() {
       <div>
         <RouterProvider router={router} />
       </div>
-    
-        <p>Foods</p>
-        {projects.map(projectMapper)}
+
+        <div style={{ display: "flex", gridTemplateColumns: 'repeat(3, 1fr)' }}>
+          {projects.map(projectMapper)}
+        </div>    
         <div>
         <input type="text" placeholder="Name" style={{ width: "80%" }}
           onChange={(event) => { setName(event.target.value); }}/>
         <br></br>
         <br></br>
         <button style={
-          { fontSize: 20,
+          { 
+            fontSize: 20,
             color: 'white',
             backgroundColor: "#71697A" }} onClick={() => {
-          let _projects = [...projects];
+              let _projects = [...projects];
 
           _projects.push({
             name: name
@@ -126,7 +127,7 @@ function App() {
           setProjects(_projects)
           x();
           
-        }}>Add Foods</button>
+        }}>Add</button>
       </div>
     
       <p>{JSON.stringify(message)}</p>
