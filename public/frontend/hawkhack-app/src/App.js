@@ -1,7 +1,57 @@
 import logo from './logo.svg';
+import {About} from './pages/about.jsx';
+import {Mainapp} from './pages/mainapp';
+import {Placeholder} from './pages/placeholder';
 import { useState } from "react";
+import { createRoot } from "react-dom/client";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link,
+} from "react-router-dom";
 
 import './App.css';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <div>
+      <h1>Home Page</h1>
+      <Link to="/about"> About Us</Link>
+      <Link to="/mainapp"> Mainapp</Link>
+      <Link to="/placeholder">Placeholder</Link>
+    </div>
+    ),
+    
+  },
+  {
+    path: "/about",
+    element: (
+      <>
+        <About/>
+      </>
+    ),
+  },
+  {
+    path: "/mainapp",
+    element: (
+      <>
+        <Mainapp/>
+      </>
+    ),
+  },
+  {
+    path: "/placeholder",
+    element: (
+      <>
+        <Placeholder/>
+      </>
+    ),
+  }
+
+])
 
 const defaultFoods = [{
   name: "Apple",
@@ -35,12 +85,19 @@ const projectMapper = (project) => {
 }
 
 function App() {
+  
+  
+
+  
   const [projects, setProjects] = useState([...defaultFoods]);
   const [name, setName] = useState("");
   const [calories, setCalories] = useState("");
 
   return (
     <div className="App">
+      <div>
+        <RouterProvider router={router} />
+      </div>
       <p>Foods</p>
       {projects.map(projectMapper)}
 
