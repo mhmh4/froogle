@@ -10,7 +10,9 @@ def bot_pass():
     with open("openai.txt") as f:
         return f.read()
 
-openai.api_key = os.getenv(bot_pass())
+# print (bot_pass())
+
+openai.api_key = (bot_pass())
 
 completion = openai.ChatCompletion.create(
   model="gpt-3.5-turbo",
