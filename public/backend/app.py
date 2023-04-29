@@ -5,13 +5,23 @@ from flask import Flask
 
 app = Flask(__name__)
 
-openai.organization = "YOUR_ORG_ID"
-# openai.api_key = os.getenv("OPENAI_API_KEY")
-openai.Model.list()
+def getkey():
+  with open("secrets/key.txt") as f:
+    return f.read()
 
-openai.Completion.create(
-  model="text-davinci-003",
-  prompt="Say this is a test",
-  max_tokens=7,
-  temperature=0
+
+openai.api_key = getkey()
+
+completion = openai.ChatCompletion.create(
+  model="gpt-3.5-turbo",
+  messages=[
+    {"role": "user", "content": "I'll give ingredients, give me recipes, just list the recipe names as a numerical list, don't output anything else"},
+    {"role": "user", 
+     "content": "Chicken, Yams"},
+
+  ]
 )
+response = completion.choices[0].message.content
+
+print(response)
+
