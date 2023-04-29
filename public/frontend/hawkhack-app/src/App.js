@@ -83,6 +83,7 @@ const projectMapper = (project) => {
     </div>
   </>)
 }
+const storageArray =[];
 
 function App() {
   
@@ -114,8 +115,7 @@ function App() {
           let _projects = [...projects];
 
           _projects.push({
-            name: name,
-            calories: calories
+            name: name
           })
           setProjects(_projects)
         }}>Add Foods</button>
