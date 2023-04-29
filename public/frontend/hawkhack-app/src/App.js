@@ -85,10 +85,18 @@ const projectMapper = (project) => {
 }
 const storageArray =[];
 
-function App() {
-  
-  
+async function fetchServer() {
+  return await fetch("http://localhost:5000/recipes")
+}
 
+function App() {
+  const [message, setMessage] = useState("");
+  const x = async() => {
+    let response= (await fetchServer())
+    setMessage(await response.text());
+    
+  }
+  x();
   
   const [projects, setProjects] = useState([...defaultFoods]);
   const [name, setName] = useState("");
@@ -99,7 +107,7 @@ function App() {
       <div>
         <RouterProvider router={router} />
       </div>
-
+    <p>{JSON.stringify(message)}</p>
       <div>
         <input type="text" placeholder="Name" style={{ width: "80%" }}
           onChange={(event) => { setName(event.target.value); }}/>
