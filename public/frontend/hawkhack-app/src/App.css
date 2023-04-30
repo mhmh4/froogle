@@ -3,7 +3,7 @@
 
 * {
   /* background-color: #D0E1D4; */
-  font-family: Poppins;
+  /* font-family: Poppins; */
   font-family: sans-serif;
   /* color: #71697A; */
 
@@ -32,7 +32,7 @@
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
@@ -67,3 +67,14 @@ color:blue;
   padding: 0 10px;
 }
 
+
+.left {
+  height: 100vh;
+  width: 25%;
+  border-right: 1px solid #eee;
+}
+
+.right {
+  width: 75%;
+  /* background-color: green; */
+}
