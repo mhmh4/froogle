@@ -107,15 +107,21 @@ const router = createBrowserRouter([
             }
             
             return (
-              <div className="App">
+              <div className="App" style={{ display: 'flex' }}>
+                <div>
+
+                <style>
+                @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap');
+                </style>
               <div style={{ backgroundColor: "#104911", padding: '3px 0px', color: '#fff' }}>
                 <RouterProvider style={{ color: '#fff' }} router={router} />
               </div>
               <div>
-                <p>THis is where the about page description will go</p>
                 <p>put this into a grid and beef up text</p>
               </div>
-              
+                </div>
+              <div>
+
 
               <input type="text" placeholder="Enter some ingredients" style={{ 
                 width: "40%", 
@@ -150,7 +156,9 @@ const router = createBrowserRouter([
                   
                   <p>{JSON.stringify(message)}</p>
                   </div>
+            </div>
                   );
                 }
+
                 
                 export default App;
