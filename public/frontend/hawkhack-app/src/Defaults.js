@@ -1,4 +1,4 @@
-const DEFAULTS = [
+export const DEFAULTS = [
 "Tomatoes, basil, and mozzarella",
 "Avocado, lime, and cilantro",
 "Peanut butter, soy sauce, and honey",
