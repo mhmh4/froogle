@@ -47,7 +47,7 @@ const projectMapper = (project) => {
     width: "200px !important",
     borderRadius: 12,
   };
-  
+
   return (
     <>
       <br />
@@ -112,8 +112,9 @@ const Project = ({ project }) => {
     });
   
     const handleProvideIngredientsClick = () => {
-      setName("test");
+      setName(choice(DEFAULTS));
     };
+    
   
     useEffect(() => {
       localStorage.setItem("name", name);
@@ -148,6 +149,7 @@ const Project = ({ project }) => {
       setProjects([...defaultFoods]);
     };
   
+    let buttonState = false;
     return (
       <div className="App">
         <div>
@@ -171,9 +173,12 @@ const Project = ({ project }) => {
                 boxShadow: "rgba(0, 0, 0, 0.1) 0px 2px 2px",
               }}
               type="text"
+              
               placeholder="Enter some ingredients here"
+            
               onChange={(event) => {
-                setName(event.target.value);
+              setName(event.target.value);
+                
               }}
             />
               <button
@@ -195,12 +200,14 @@ const Project = ({ project }) => {
                   });
                   setProjects(_projects);
                   fetchRecipesAndUpdate();
+                  buttonState = true;
+                  
                 }}
               >
                 Search
               </button>
             <div>
-              <button style={{...btnStyle, margin: "0 10px"}} onClick={handleProvideIngredientsClick}>
+              <button style={{...btnStyle, margin: "0 10px"}} onClick={handleProvideIngredientsClick} value={name}>
                 Provide Ingredients
               </button>
               <button style={{...btnStyle, margin: "0 10px"}} onClick={handleClearStorageClick}>
@@ -216,8 +223,7 @@ const Project = ({ project }) => {
           <div>
             <br></br>
           </div>
-          <p>{parse(JSON.stringify(message))}</p>
-          <p>{choice(DEFAULTS)}</p>
+              
         </div>
       </div>
     );
