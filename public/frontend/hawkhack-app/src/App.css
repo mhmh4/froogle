@@ -74,17 +74,18 @@ color:blue;
   cursor: pointer;
   margin: 0;
   margin-top: 50px;
-  
   transition: all 0.2s ease-in-out;
   padding-top: 10%;
-  font-size:100px;
+  font-size:125px;
 }
 
 .logo:hover {
   transform: scale(1.04);
 }
 
-
+.heading{
+  padding-bottom: 20px;
+}
 @keyframes fadeIn {
   0% { background-color: #eee; }
   100% { background-color: #ddd; }
@@ -93,4 +94,8 @@ color:blue;
 .project:hover {
   background-color: #ddd;
   animation: fadeIn 0.3s;
+}
+
+.text{
+  font-size: 50px;
 }
