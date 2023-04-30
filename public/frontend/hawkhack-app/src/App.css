@@ -7,7 +7,9 @@
 }
 
 .App {
+  padding: 0 5%;
   /* text-align: center; */
+  background-color: #fdfdfd;
 }
 
 .App h1, .App h2, .App h3, .App h4, .App h5, .App h6 {
@@ -64,20 +66,16 @@ color:blue;
   padding: 0 10px;
 }
 
-.search {
-  margin: '30px 0';
-  width: "20%"; 
-  height: 15;
-  background-color: "#000";
-  border: "1px solid #eee";
-  padding: '12px 15px';
-  border-radius: 30;
-}
 .foodImg {
   position: absolute;
-  opacity: 0.4;
+  opacity: 0.33;
+  width: 100px;
 }
 
 .logo {
   font-size: 70px;
+}
+
+.Btn {
+  
 }

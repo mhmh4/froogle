@@ -86,6 +86,15 @@ const router = createBrowserRouter([
               setMessage(await response.text());
             }
             
+            const btnStyle = {
+              fontSize: 20, 
+              color: "white", 
+              backgroundColor: "#71697A",
+              borderRadius: '3px',
+              border: 0,
+              padding: 10
+            }
+
             return (
               <div className="App">
                 {/* <img className='foodImg' style={{ left: 10, top: 10 }} src="https://em-content.zobj.net/thumbs/120/google/350/avocado_1f951.png"/>
@@ -101,10 +110,20 @@ const router = createBrowserRouter([
                 <div className='description'>
                   <div style={{ textAlign: "center" }}>
                     <h1 className="logo">froogle</h1>
-                    <input className="search" type="text" placeholder="Enter some ingredients"
+                    <input className="search" style={{ 
+marginBottom: '30px',
+width: "40%",
+height: 15,
+backgroundColor: "#efefef",
+border: "1px solid #eee",
+padding: '18px 20px',
+borderRadius: 30,
+fontSize: 16,
+boxShadow: 'rgba(0, 0, 0, 0.15) 0px 3px 8px'
+                    }} type="text" placeholder="Enter some ingredients"
               onChange={(event) => { setName(event.target.value); }}/>
               <div>
-              <button className='Btn' onClick={() => {
+              <button style={btnStyle} onClick={() => {
                   let _projects = [...projects];
                   _projects.push({
                     name: name
