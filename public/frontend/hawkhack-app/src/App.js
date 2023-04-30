@@ -21,10 +21,12 @@ const router = createBrowserRouter([
     path: "/",
     element: (
       <div>
-      <h1>Froogle</h1>
-      <Link to="/about"> About Us</Link>
-      <Link to="/mainapp"> Mainapp</Link>
-      <Link to="/placeholder">Placeholder</Link>
+        <h1>Froogle</h1>
+        <Link style={{ color: '#eee' }} to="/about"> About Us</Link>
+        &nbsp;
+        <Link style={{ color: '#eee' }} to="/mainapp"> Mainapp</Link>
+        &nbsp;
+        <Link style={{ color: '#eee' }} to="/placeholder">Placeholder</Link>
       </div>
       ),
       
@@ -107,7 +109,7 @@ const router = createBrowserRouter([
             return (
               <div className="App">
               <div style={{ backgroundColor: "#1C77C3", padding: '10px 0px', color: '#fff' }}>
-              <RouterProvider router={router} />
+                <RouterProvider style={{ color: '#fff' }} router={router} />
               </div>
               <div>
                 <p>THis is where the about page description will go</p>
