@@ -24,10 +24,13 @@ def get_image_url(query):
     response = requests.get(url, params=params)
 
     if response.status_code == 200:
-        results = response.json()["items"]
-        if results:
-            return results[0]["link"]
+        response_json = response.json()
+        if "items" in response_json:
+            results = response_json["items"]
+            if results:
+                return results[0]["link"]
     return None
+
 
 # print (get_image_url("mulukhiyah" ))
 
@@ -72,21 +75,22 @@ def call_chatgpt_api(input):
 
 
 def main():
-    res = call_chatgpt_api("lemon, apple, yogurt")
-    recipe_names = call_chatgpt_api(res)
-    image_urls = [get_image_url(recipe) for recipe in recipe_names]  # get image URL for each 
-    for i in image_urls:
-        print(i)
+    ingredients = "lemon, apple, yogurt"
+    recipe_names = call_chatgpt_api(ingredients).split("\n")  # split recipe names by newline
+    for recipe in recipe_names:
+        image_url = get_image_url(recipe.strip())
+        print(recipe.strip(), image_url)
 
 
 @app.route("/recipes")
 def generate_recipes():
     query_string = str(request.query_string)
     print(query_string)
-    recipe_names = call_chatgpt_api(query_string)
+    res = call_chatgpt_api(query_string)
+    recipe_names = call_chatgpt_api(res)
     image_urls = [get_image_url(recipe) for recipe in recipe_names]  # get image URL for each 
     for i in image_urls:
         print(i)
-    return recipe_names
+    return "\n".join(image_urls) + recipe_names
 
 main()
