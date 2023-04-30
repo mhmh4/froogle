@@ -246,24 +246,21 @@ const Project = ({ project }) => {
     
     // Get the name boxes and search bar elements
 
+    function parse(data) {
+      console.log(data);
+      return data
+    }
     
     const btnStyle = {
       fontSize: 16, 
       color: "white", 
       backgroundColor: "cornflowerblue",
-<<<<<<< Updated upstream
-      borderRadius: '3px',
-      border: 0,
-      padding: 10,
-      margin: '0 10px'
-=======
       borderRadius: '6px',
       border: 0,
       padding: 10,
       margin: '0 10px',
       cursor: 'pointer',
       width: 190
->>>>>>> Stashed changes
     }
             return (
               <div className="App">
@@ -303,16 +300,10 @@ boxShadow: 'rgba(0, 0, 0, 0.15) 0px 3px 8px'
                   })
                   setProjects(_projects)
                   fetchRecipesAndUpdate();  
-<<<<<<< Updated upstream
-                }}>froogle search</button>
-
-              <button className='Btn'>I'm feeling lucky</button>
-=======
                 }}>Search for Recipes</button>
               <button style={btnStyle} onClick={() => {
                 setName(choice(DEFAULTS));
               }}>Provide Ingredients</button>
->>>>>>> Stashed changes
                   </div>
                 </div>
               </div>
@@ -322,14 +313,9 @@ boxShadow: 'rgba(0, 0, 0, 0.15) 0px 3px 8px'
                 </div>    
                 <div>
                 <br></br>
-                </div>
-                
-<<<<<<< Updated upstream
-                <p>{JSON.stringify(message)}</p>
-=======
+                </div>                
                 <p>{parse(JSON.stringify(message))}</p>
                 <p>{choice(DEFAULTS)}</p>
->>>>>>> Stashed changes
                 </div>
                 </div>
                 );
