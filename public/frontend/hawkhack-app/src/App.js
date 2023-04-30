@@ -87,14 +87,19 @@ const projectMapper = (project) => {
       });
     });
 
+    function parse(data) {
+      console.log(data);
+      return data;
+    }
     
     const btnStyle = {
       fontSize: 20, 
       color: "white", 
-      backgroundColor: "#71697A",
+      backgroundColor: "cornflowerblue",
       borderRadius: '3px',
       border: 0,
-      padding: 10
+      padding: 10,
+      margin: '0 10px'
     }
             return (
               <div className="App">
@@ -133,7 +138,7 @@ boxShadow: 'rgba(0, 0, 0, 0.15) 0px 3px 8px'
                   setProjects(_projects)
                   fetchRecipesAndUpdate();  
                 }}>froogle search</button>
-              <button className='Btn'>I'm feeling lucky</button>
+              <button style={btnStyle}>Get some ingredients</button>
                   </div>
                 </div>
               </div>
@@ -147,7 +152,7 @@ boxShadow: 'rgba(0, 0, 0, 0.15) 0px 3px 8px'
                 <br></br>
                 </div>
                 
-                <p>{JSON.stringify(message)}</p>
+                <p>{parse(JSON.stringify(message))}</p>
                 </div>
                 </div>
                 );
