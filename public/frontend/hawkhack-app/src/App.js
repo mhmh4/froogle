@@ -153,6 +153,7 @@ const Project = ({ project }) => {
         <div>
           <div style={{ textAlign: "center", position: "relative" }}>
             <h1 className="logo">🥑 froogle</h1>
+            <p style={{ color: '#333', marginBottom: '20px' }}>The home of recipe ideas</p>
             <input
               className="search"
               style={{
