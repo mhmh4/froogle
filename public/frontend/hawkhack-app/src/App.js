@@ -57,20 +57,7 @@ const router = createBrowserRouter([
         ),
   }])
         
-        const defaultFoods = [{
-          name: "Apple",
-          calories: "65",
-          tags: ["Crisp", "crunchy", "sweet", ]
-        },
-        {
-          name: "Chicken",
-          calories: "120",
-          tags: ["artsy"]
-        }, {
-          name: "Rice",
-          calories: "60",
-          tags: ["shrek"]
-        }];
+        const defaultFoods = [];
         
         const projectMapper = (project) => {
           const projectStyle = {
