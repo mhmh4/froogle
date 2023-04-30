@@ -114,14 +114,8 @@ const router = createBrowserRouter([
                 <p>put this into a grid and beef up text</p>
               </div>
               
-              <input type="text" placeholder="Name" style={{ width: "40%", height: 15}}
+              <input type="text" placeholder="Enter some ingredients" style={{ width: "40%", height: 15}}
               onChange={(event) => { setName(event.target.value); }}/>
-              <div style={{ display: "flex", gridTemplateColumns: 'repeat(3, 1fr)' }}>
-                {projects.map(projectMapper)}
-              </div>    
-              <div>
-              <br></br>
-              <br></br>
               <button style={
                 { 
                   fontSize: 20,
@@ -134,9 +128,14 @@ const router = createBrowserRouter([
                       name: name
                     })
                     setProjects(_projects)
-                    fetchRecipesAndUpdate();
-                    
+                    fetchRecipesAndUpdate();  
                   }}>Add</button>
+              <div style={{ display: "flex", gridTemplateColumns: 'repeat(3, 1fr)' }}>
+                {projects.map(projectMapper)}
+              </div>    
+              <div>
+              <br></br>
+              <br></br>
                   </div>
                   
                   <p>{JSON.stringify(message)}</p>
