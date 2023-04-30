@@ -83,3 +83,12 @@ color:blue;
 }
 
 
+@keyframes fadeIn {
+  0% { background-color: #eee; }
+  100% { background-color: #ddd; }
+}
+
+.project:hover {
+  background-color: #ddd;
+  animation: fadeIn 0.3s;
+}

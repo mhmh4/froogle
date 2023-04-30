@@ -51,26 +51,28 @@ const projectMapper = (project) => {
   return (
     <>
       <br />
-      <div style={projectStyle} onClick={() => {
+      <div className='project' style={projectStyle} onClick={() => {
         const searchInput = document.querySelector('.search');
         searchInput.value = project.name;
       }}>
-        <p style={{ fontWeight: "bold" }}>{project.name}</p>
+        <p>{project.name}</p>
       </div>
     </>
   );
 };
 const projectStyle = {
-  border: '1.5px solid #ddd',
-  width: "200px",
+  border: '1px solid #cdcdcd',
+  minWidth: "200px !impotant",
   margin: '5px 5px',
+  padding: '0 10px',
   borderRadius: 12,
   // transition: "border-color 0.2s ease-in-out"
+  textOverflow: 'ellipsis',
+  cursor: 'pointer'
 }
 
 const hoverProjectStyle = {
   ...projectStyle,
-  borderColor: "red"
 }
 
 const Project = ({ project }) => {
@@ -152,6 +154,8 @@ const Project = ({ project }) => {
     let buttonState = false;
     return (
       <div className="App">
+        <div style={{   height: '200px', width: '200px', rotate: '30deg', zIndex: -1, backgroundColor: 'green', opacity: 0.05, position: 'absolute', left: 0, top: -90 }}></div>
+        <div style={{   height: '200px', width: '200px', rotate: '30deg', zIndex: -1, backgroundColor: 'green', opacity: 0.05, position: 'absolute', right: -10, top: 100, borderRadius: '50%' }}></div>
         <div>
           <div style={{ textAlign: "center", position: "relative" }}>
             
@@ -217,7 +221,7 @@ const Project = ({ project }) => {
           </div>
         </div>
         <div style={{ padding: "20px 20%" }}>
-          <div style={{ display: "flex", minHeight: 70, overflowX: "scroll", backgroundColor: '#eee', borderRadius: '5px' }}>
+          <div style={{ display: "flex", minHeight: 70, overflowX: "scroll", backgroundColor: '#eee', borderRadius: '10px' }}>
             {projects.map(projectMapper)}
           </div>
           <div>
