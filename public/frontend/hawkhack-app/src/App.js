@@ -308,7 +308,7 @@ boxShadow: 'rgba(0, 0, 0, 0.15) 0px 3px 8px'
                 </div>
               </div>
               <div style={{ padding: '20px 17%' }}>
-                <div style={{ display: 'flex' }}>
+                <div style={{ display: 'flex', minHeight: 70 }}>
                   {projects.map(projectMapper)}
                 </div>    
                 <div>
