@@ -106,7 +106,7 @@ const router = createBrowserRouter([
             
             return (
               <div className="App">
-              <div>
+              <div style={{ backgroundColor: "#1C77C3", padding: '10px 0px', color: '#fff' }}>
               <RouterProvider router={router} />
               </div>
               <div>
