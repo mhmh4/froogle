@@ -158,10 +158,15 @@ const Project = ({ project }) => {
         <div style={{   height: '200px', width: '200px', rotate: '30deg', zIndex: -1, backgroundColor: 'green', opacity: 0.05, position: 'absolute', right: -10, top: 100, borderRadius: '50%' }}></div>
         <div>
           <div style={{ textAlign: "center", position: "relative" }}>
-            
+            <div className="heading">
             <h1 className="logo" title="The home of recipe ideas">🥑 froogle</h1>
 
-            <p style={{ color: '#333', marginBottom: '20px' }}>The home of recipe ideas</p>
+            <p className='text' style={{ color: '#333', marginBottom: '20px',
+             fontSize: '20px',
+             marginTop: '-2.3%',
+             marginRight: '1%',         
+             }}>The home of recipe ideas</p>
+             </div>
             <input
               className="search"
               style={{
@@ -178,7 +183,7 @@ const Project = ({ project }) => {
               }}
               type="text"
               
-              placeholder="Enter some ingredients here"
+              placeholder="Enter some ingredients here..."
             
               onChange={(event) => {
               setName(event.target.value);
