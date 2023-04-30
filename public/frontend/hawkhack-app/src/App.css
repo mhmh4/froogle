@@ -70,14 +70,16 @@ color:blue;
   position: absolute;
   /* position: relative; */
   /* z-index: 0; */
-  opacity: 0.33;
-  width: 60px;
+  opacity: 0.5;
+  width: 40px;
 }
 
 .logo {
-  font-size: 70px;
+  margin-top: 70px;
+  margin-bottom: 50px;
+  font-size: 60px;
 }
 
-.Btn {
-  
+button:hover {
+  background-color: #3676e7 !important;
 }
