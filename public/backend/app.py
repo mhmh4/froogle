@@ -49,7 +49,7 @@ def call_chatgpt_api(input):
         model="gpt-3.5-turbo",
         messages=[
             {"role": "user", "content": "I'll give ingredients, give me recipes, just list the recipe names as a numerical list, don't output anything else"},
-            {"role": "user", "content": f"Here are the ingredients: {input}. List recipes, just list the recipe names"},
+            {"role": "user", "content": f"Here are the ingredients: {input}. List recipes, just list the recipe names, nothin else"},
         ]
     )
     recipe_names = completion.choices[0].message.content
@@ -60,26 +60,33 @@ def call_chatgpt_api(input):
     print(recipe_names)
 
     # recipe_names = []
-    completion2 = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "user", "content": f"Generate a recipe for the following dishes: {recipe_names}."}
-        ]
-    )
-    print(completion2.choices[0].message.content)
+    # completion2 = openai.ChatCompletion.create(
+    #     model="gpt-3.5-turbo",
+    #     messages=[
+    #         {"role": "user", "content": f"Generate a recipe for the following dishes: {recipe_names}."}
+    #     ]
+    # )
+    # print(completion2.choices[0].message.content)
     # return (completion.choices[0].message.content)
     return completion.choices[0].message.content
 
 
 def main():
     res = call_chatgpt_api("lemon, apple, yogurt")
-    print(res)
+    recipe_names = call_chatgpt_api(res)
+    image_urls = [get_image_url(recipe) for recipe in recipe_names]  # get image URL for each 
+    for i in image_urls:
+        print(i)
 
 
 @app.route("/recipes")
 def generate_recipes():
     query_string = str(request.query_string)
     print(query_string)
-    return call_chatgpt_api(query_string)
+    recipe_names = call_chatgpt_api(query_string)
+    image_urls = [get_image_url(recipe) for recipe in recipe_names]  # get image URL for each 
+    for i in image_urls:
+        print(i)
+    return recipe_names
 
 main()
