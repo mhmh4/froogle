@@ -10,3 +10,11 @@ Front:
 	:x: Sketch it out
 
 	:x: design 
+
+tools used:
+* react
+* flask
+* python
+* openAi API
+* Images API
+* json
