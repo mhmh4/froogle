@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     path: "/",
     element: (
       <div style={{ textAlign: 'center' }}>
-      <h1>froogle</h1>
+      {/* <h1>froogle</h1> */}
       {/* <Link style={{ color: '#eee' }} to="/about"> About Us</Link> */}
       {/* &nbsp; */}
       {/* <Link style={{ color: '#eee' }} to="/mainapp"> Mainapp</Link> */}
@@ -106,7 +106,6 @@ const router = createBrowserRouter([
                 {/* <div style={{ backgroundColor: "#A4BFEB", padding: '10px', color: '#fff' }}>
                   <RouterProvider style={{ color: '#fff' }} router={router} />
                 </div> */}
-                <div className='description'>
                   <div style={{ textAlign: "center", position: "relative" }}>
                     <img className='foodImg' style={{ left: 370, top: 20 }} src="https://em-content.zobj.net/thumbs/120/google/350/avocado_1f951.png"/>
                     <h1 className="logo">froogle</h1>
@@ -134,7 +133,6 @@ boxShadow: 'rgba(0, 0, 0, 0.15) 0px 3px 8px'
                   fetchRecipesAndUpdate();  
                 }}>froogle search</button>
               <button className='Btn'>I'm feeling lucky</button>
-              </div>
                   </div>
                 </div>
               </div>
