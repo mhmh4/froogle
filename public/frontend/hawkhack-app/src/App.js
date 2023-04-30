@@ -178,11 +178,12 @@ const Project = ({ project }) => {
                 style={{ ...btnStyle, 
                   borderTopRightRadius: 30,
                   borderBottomRightRadius: 30,
-                  padding: "17px 20px", 
+                  padding: "16px 20px", 
                   borderTopLeftRadius: 0, 
                   width: '100px',
                   borderBottomLeftRadius: 0,
-                  backgroundColor: '#466d1d'
+                  backgroundColor: '#466d1d',
+                  boxShadow: "rgba(0, 0, 0, 0.1) 0px 2px 2px",
               }}
                 onClick={() => {
                   if (!name || !name.trim()) return;
@@ -207,7 +208,7 @@ const Project = ({ project }) => {
           </div>
         </div>
         <div style={{ padding: "20px 20%" }}>
-          <div style={{ display: "flex", minHeight: 70, overflowX: "scroll" }}>
+          <div style={{ display: "flex", minHeight: 70, overflowX: "scroll", backgroundColor: '#eee', borderRadius: '5px' }}>
             {projects.map(projectMapper)}
           </div>
           <div>
