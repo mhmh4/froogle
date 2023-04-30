@@ -1,102 +1,101 @@
 import logo from './logo.svg';
-import {About} from './pages/about.jsx';
-import {Mainapp} from './pages/mainapp';
-import {Placeholder} from './pages/placeholder';
-import { useState } from "react";
+import { About } from './pages/about.jsx';
+import { Mainapp } from './pages/mainapp';
+import { Placeholder } from './pages/placeholder';
+import { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import {
-  createBrowserRouter,
+  BrowserRouter,
   RouterProvider,
   Route,
   Link,
 } from "react-router-dom";
 
-
 import './App.css';
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <div style={{ textAlign: 'center' }}>
+const router = (
+  <BrowserRouter>
+    <div style={{ textAlign: 'center' }}>
       {/* <h1>froogle</h1> */}
       {/* <Link style={{ color: '#eee' }} to="/about"> About Us</Link> */}
       {/* &nbsp; */}
       {/* <Link style={{ color: '#eee' }} to="/mainapp"> Mainapp</Link> */}
       {/* &nbsp; */}
       {/* <Link style={{ color: '#eee' }} to="/placeholder">Placeholder</Link> */}
-      </div>
-      ),    
-  },
-  {
-    path: "/about",
-    element: (
-        <>
-        <About/>
-        </>
-    ),
-    },
-  {
-    path: "/mainapp",
-    element: (
-      <>
-      <Mainapp/>
-      </>
-      ),
-  },
-  {
-      path: "/placeholder",
-      element: (
-        <>
-        <Placeholder/>
-        </>
-        ),
-  }])
-        
-        const defaultFoods = [];
-        
-        const projectMapper = (project) => {
-          const projectStyle = {
-            border: '1.5px solid #ddd',
-            width: "150px",
-            borderRadius: 12,
-          }
-          return (<>
-            <br></br>
-            <div style={projectStyle}>
-            <p style={{ fontWeight: "bold", }}>{project.name}</p>
-            </div>
-            </>)
-          }
-          const storageArray =[];
-          
-          async function fetchRecipes(input) {
-            console.log("name=" + input);
-            return await fetch(`http://localhost:5000/recipes?${input}`)
-          }
-          
-          function App() {
-            const [message, setMessage] = useState("");            
-            const [projects, setProjects] = useState([...defaultFoods]);
-            const [name, setName] = useState("");
-            
-            const fetchRecipesAndUpdate = async() => {
-              if (name && !name.trim()) return;
-              let response= (await fetchRecipes(name))
-              setMessage(await response.text());
-            }
-            
-            const btnStyle = {
-              fontSize: 20, 
-              color: "white", 
-              backgroundColor: "cornflowerblue",
-              borderRadius: '3px',
-              border: 0,
-              padding: 10,
-              width: '180px',
-              margin: '0 10px'
-            }
+    </div>
+  </BrowserRouter>
+);
 
+const defaultFoods = [];
+
+const projectMapper = (project) => {
+  const projectStyle = {
+    border: '1.5px solid #ddd',
+    width: "150px",
+    borderRadius: 12,
+  }
+  return (<>
+    <br></br>
+    <div style={projectStyle}>
+    <p style={{ fontWeight: "bold", }}>{project.name}</p>
+    </div>
+    </>)
+  }
+  const storageArray =[];
+  
+  async function fetchRecipes(input) {
+    console.log("name=" + input);
+    return await fetch(`http://localhost:5000/recipes?${input}`)
+  }
+  
+  function App() {
+    const [message, setMessage] = useState("");    
+    const [projects, setProjects] = useState(() => {
+      const storedProjects = localStorage.getItem("projects");
+      return storedProjects ? JSON.parse(storedProjects) : [...defaultFoods];
+    });
+    
+    useEffect(() => {
+      localStorage.setItem("projects", JSON.stringify(projects));
+    }, [projects]);
+
+    
+    const [name, setName] = useState(() => {
+      return localStorage.getItem("name") || "";
+    });
+    
+    useEffect(() => {
+      localStorage.setItem("name", name);
+    }, [name]);
+
+    
+    const [calories, setCalories] = useState("");
+    
+    const fetchRecipesAndUpdate = async() => {
+      let response= (await fetchRecipes(name))
+      setMessage(await response.text());
+    }
+    // Get the name boxes and search bar elements
+    const nameBoxes = document.querySelectorAll('.name-box');
+    const searchBar = document.querySelector('#search-bar');
+
+// Loop through each name box and add a click event listener
+    nameBoxes.forEach(nameBox => {
+      nameBox.addEventListener('click', () => {
+        // Copy the value of the clicked name box to the search bar
+        searchBar.value = nameBox.value;
+      });
+    });
+
+    
+    const btnStyle = {
+      fontSize: 20, 
+      color: "white", 
+      backgroundColor: "#71697A",
+      borderRadius: '3px',
+      border: 0,
+      padding: 10
+    }
             return (
               <div className="App">
                 {/* <img className='foodImg' style={{ right: 23, top: 55 }} src="https://em-content.zobj.net/thumbs/120/google/350/watermelon_1f349.png"/> */}
@@ -115,27 +114,26 @@ const router = createBrowserRouter([
 
                     <input className="search" style={{ 
 marginBottom: '30px',
-width: "50%",
-height: 13,
+width: "40%",
+height: 15,
 backgroundColor: "#efefef",
 border: "1px solid #eee",
 padding: '18px 20px',
 borderRadius: 30,
 fontSize: 16,
-boxShadow: 'rgba(0, 0, 0, 0.3) 0px 3px 8px'
+boxShadow: 'rgba(0, 0, 0, 0.15) 0px 3px 8px'
                     }} type="text" placeholder="Enter some ingredients"
               onChange={(event) => { setName(event.target.value); }}/>
               <div>
               <button style={btnStyle} onClick={() => {
-                if (!(name && !name.trim())) return;
-                let _projects = [...projects];
+                  let _projects = [...projects];
                   _projects.push({
                     name: name
                   })
                   setProjects(_projects)
                   fetchRecipesAndUpdate();  
                 }}>froogle search</button>
-              <button style={btnStyle}>Test Run</button>
+              <button className='Btn'>I'm feeling lucky</button>
                   </div>
                 </div>
               </div>
