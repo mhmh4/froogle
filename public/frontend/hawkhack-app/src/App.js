@@ -138,7 +138,7 @@ const Project = ({ project }) => {
       borderRadius: "6px",
       border: 0,
       padding: 10,
-      margin: "0 10px",
+      // margin: "0 10px",
       cursor: "pointer",
       width: 190,
     };
@@ -162,7 +162,8 @@ const Project = ({ project }) => {
                 backgroundColor: "#eee",
                 border: "1px solid #eee",
                 padding: "18px 20px",
-                borderRadius: 30,
+                borderTopLeftRadius: 30,
+                borderBottomLeftRadius: 30,
                 fontSize: 16,
                 boxShadow: "rgba(0, 0, 0, 0.1) 0px 2px 2px",
               }}
@@ -172,9 +173,16 @@ const Project = ({ project }) => {
                 setName(event.target.value);
               }}
             />
-            <div>
               <button
-                style={{ ...btnStyle }}
+                style={{ ...btnStyle, 
+                  borderTopRightRadius: 30,
+                  borderBottomRightRadius: 30,
+                  padding: "17px 20px", 
+                  borderTopLeftRadius: 0, 
+                  width: '100px',
+                  borderBottomLeftRadius: 0,
+                  backgroundColor: '#466d1d'
+              }}
                 onClick={() => {
                   if (!name || !name.trim()) return;
                   let _projects = [...projects];
@@ -185,8 +193,9 @@ const Project = ({ project }) => {
                   fetchRecipesAndUpdate();
                 }}
               >
-                Search for Recipes
+                Search
               </button>
+            <div>
               <button style={btnStyle} onClick={handleProvideIngredientsClick}>
                 Provide Ingredients
               </button>
