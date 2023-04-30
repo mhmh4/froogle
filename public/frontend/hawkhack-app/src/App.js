@@ -105,10 +105,7 @@ const router = createBrowserRouter([
             
             return (
               <div className="App">
-              <div className='left'>
-                <style>
-                  @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap');
-                </style>
+              <div>
                 {/* <div style={{ backgroundColor: "#A4BFEB", padding: '10px', color: '#fff' }}>
                   <RouterProvider style={{ color: '#fff' }} router={router} />
                 </div> */}
