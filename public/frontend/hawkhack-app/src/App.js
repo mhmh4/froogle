@@ -21,6 +21,7 @@ const router = createBrowserRouter([
     path: "/",
     element: (
       <div style={{ textAlign: 'center' }}>
+        <img className='foodImg' style={{ left: 10, top: 10 }} src="https://em-content.zobj.net/thumbs/160/apple/354/sushi_1f363.png" width="40px"/>
       <h1>froogle</h1>
       {/* <Link style={{ color: '#eee' }} to="/about"> About Us</Link> */}
       {/* &nbsp; */}
@@ -28,35 +29,32 @@ const router = createBrowserRouter([
       {/* &nbsp; */}
       {/* <Link style={{ color: '#eee' }} to="/placeholder">Placeholder</Link> */}
       </div>
-      ),
-      
-    },
-    {
-      path: "/about",
-      element: (
+      ),    
+  },
+  {
+    path: "/about",
+    element: (
         <>
         <About/>
         </>
+    ),
+    },
+  {
+    path: "/mainapp",
+    element: (
+      <>
+      <Mainapp/>
+      </>
+      ),
+  },
+  {
+      path: "/placeholder",
+      element: (
+        <>
+        <Placeholder/>
+        </>
         ),
-      },
-      {
-        path: "/mainapp",
-        element: (
-          <>
-          <Mainapp/>
-          </>
-          ),
-        },
-        {
-          path: "/placeholder",
-          element: (
-            <>
-            <Placeholder/>
-            </>
-            ),
-          }
-          
-        ])
+  }])
         
         const defaultFoods = [{
           name: "Apple",
@@ -110,7 +108,7 @@ const router = createBrowserRouter([
                 <style>
                   @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap');
                 </style>
-                <div style={{ backgroundColor: "#759EB8", padding: '10px', color: '#fff' }}>
+                <div style={{ backgroundColor: "#A4BFEB", padding: '10px', color: '#fff' }}>
                   <RouterProvider style={{ color: '#fff' }} router={router} />
                 </div>
                 <div className='description'>
@@ -168,7 +166,6 @@ const router = createBrowserRouter([
                 </div>
                 );
               }
-              
-              
-              export default App;
+                            
+export default App;
               
