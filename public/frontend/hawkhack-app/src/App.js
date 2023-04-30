@@ -109,6 +109,10 @@ const router = createBrowserRouter([
               <div>
               <RouterProvider router={router} />
               </div>
+              <div>
+                <p>THis is where the about page description will go</p>
+                <p>put this into a grid and beef up text</p>
+              </div>
               
               <input type="text" placeholder="Name" style={{ width: "40%", height: 15}}
               onChange={(event) => { setName(event.target.value); }}/>
