@@ -21,7 +21,7 @@ def call_chatgpt_api(input):
         model="gpt-3.5-turbo",
         messages=[
             {"role": "user", "content": "I'll give ingredients, give me recipes, just list the recipe names as a numerical list, don't output anything else"},
-            {"role": "user", "content": f"{input}"},
+            {"role": "user", "content": f"Here are the ingredients: {input}. List recipes, just list the recipe names"},
         ]
     )
     return (completion.choices[0].message.content)
