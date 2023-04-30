@@ -14,15 +14,11 @@ import {
 
 import './App.css';
 
-var event;
-
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
       <div style={{ textAlign: 'center' }}>
-        <img className='foodImg' style={{ left: 10, top: 10 }} src="https://em-content.zobj.net/thumbs/120/google/350/avocado_1f951.png" width="40px"/>
-        <img className='foodImg' style={{ left: 23, top: 55 }} src="https://em-content.zobj.net/thumbs/120/google/350/watermelon_1f349.png" width="40px"/>
       <h1>froogle</h1>
       {/* <Link style={{ color: '#eee' }} to="/about"> About Us</Link> */}
       {/* &nbsp; */}
@@ -105,6 +101,12 @@ const router = createBrowserRouter([
             
             return (
               <div className="App">
+                {/* <img className='foodImg' style={{ left: 10, top: 10 }} src="https://em-content.zobj.net/thumbs/120/google/350/avocado_1f951.png"/>
+                <img className='foodImg' style={{ right: 23, top: 55 }} src="https://em-content.zobj.net/thumbs/120/google/350/watermelon_1f349.png"/>
+                <img className='foodImg' style={{ right: 50, top: 100 }} src="https://em-content.zobj.net/thumbs/120/apple/354/mango_1f96d.png"/>
+
+                <img className='foodImg' style={{ left: 20, top: 155 }} src="https://em-content.zobj.net/thumbs/120/apple/354/bread_1f35e.png"/> */}
+
               <div>
                 {/* <div style={{ backgroundColor: "#A4BFEB", padding: '10px', color: '#fff' }}>
                   <RouterProvider style={{ color: '#fff' }} router={router} />
@@ -114,19 +116,17 @@ const router = createBrowserRouter([
                     <h1 className="logo">froogle</h1>
                     <input className="search" type="text" placeholder="Enter some ingredients"
               onChange={(event) => { setName(event.target.value); }}/>
-              <button style={
-                { 
-                  fontSize: 20,
-                  color: 'white',
-                  backgroundColor: "#71697A" }
-                } onClick={() => {
+              <div>
+              <button className='Btn' onClick={() => {
                   let _projects = [...projects];
                   _projects.push({
                     name: name
                   })
                   setProjects(_projects)
                   fetchRecipesAndUpdate();  
-                }}>Add</button>
+                }}>froogle search</button>
+              <button className='Btn'>I'm feeling lucky</button>
+              </div>
                   </div>
                 </div>
               </div>
