@@ -163,7 +163,7 @@ const defaultFoods = [];
 const projectMapper = (project) => {
   const projectStyle = {
     border: '1.5px solid #ddd',
-    width: "150px",
+    width: "200px !important",
     borderRadius: 12,
   };
   
@@ -309,7 +309,7 @@ boxShadow: 'rgba(0, 0, 0, 0.1) 0px 2px 2px'
                 </div>
               </div>
               <div style={{ padding: '20px 20%' }}>
-                <div style={{ display: 'flex', minHeight: 70, overflow: 'scroll' }}>
+                <div style={{ display: 'flex', minHeight: 70, overflowX: 'scroll' }}>
                   {projects.map(projectMapper)}
                 </div>    
                 <div>
