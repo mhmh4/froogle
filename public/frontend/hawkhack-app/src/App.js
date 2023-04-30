@@ -138,7 +138,7 @@ const Project = ({ project }) => {
     const btnStyle = {
       fontSize: 16, 
       color: "white", 
-      backgroundColor: "cornflowerblue",
+      backgroundColor: "#013220",
       borderRadius: '6px',
       border: 0,
       padding: 10,
@@ -153,15 +153,11 @@ const Project = ({ project }) => {
                 {/* <div style={{ backgroundColor: "#A4BFEB", padding: '10px', color: '#fff' }}>
                   <RouterProvider style={{ color: '#fff' }} router={router} />
                 </div> */}
-                  <div style={{ textAlign: "center", position: "relative" }}>
-                    {/* <img className='foodImg' style={{ left: 400, top: 20, rotate: '-80deg' }} src="https://em-content.zobj.net/thumbs/120/google/350/avocado_1f951.png"/> */}
-                    <h1 className="logo">🥑 froogle</h1>
-                    {/* <img className='foodImg' style={{ right: 350, top: 1, rotate: '40deg' }} src="https://em-content.zobj.net/thumbs/120/apple/354/strawberry_1f353.png"/> */}
-                    {/* <img className='foodImg' style={{ right: 410, top: 40, rotate: '30deg' }} src="https://em-content.zobj.net/thumbs/120/apple/354/bell-pepper_1fad1.png"/> */}
-                    {/* <img className='foodImg' style={{ right: 343, top: 55 }} src="https://em-content.zobj.net/thumbs/120/google/350/watermelon_1f349.png"/> */}
-                {/* <img className='foodImg' style={{ left: 330, top: 50 }} src="https://em-content.zobj.net/thumbs/120/apple/354/mango_1f96d.png"/> */}
-
-                {/* <img className='foodImg' style={{ left: 330, top: 5, rotate: '-30deg' }} src="https://em-content.zobj.net/thumbs/120/apple/354/bread_1f35e.png"/> */}
+                  <div style={{ textAlign: "center" }}>
+                    <div style={{ display: 'flex', textAlign: 'center' }}>
+                    <img className='foodImg' style={{ left: 0, top: 10 }} src="https://em-content.zobj.net/thumbs/120/google/350/avocado_1f951.png"/>
+                    <h1 className="logo">froogle</h1>
+                    </div>
 
                     <input className="search" style={{ 
 marginBottom: '30px',
