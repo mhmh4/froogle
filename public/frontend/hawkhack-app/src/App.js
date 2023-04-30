@@ -97,106 +97,118 @@ const Project = ({ project }) => {
   }
   
   function App() {
-    const [message, setMessage] = useState("");    
+    const [message, setMessage] = useState("");
     const [projects, setProjects] = useState(() => {
       const storedProjects = localStorage.getItem("projects");
       return storedProjects ? JSON.parse(storedProjects) : [...defaultFoods];
     });
-    
+  
     useEffect(() => {
       localStorage.setItem("projects", JSON.stringify(projects));
     }, [projects]);
-
-    
+  
     let [name, setName] = useState(() => {
       return localStorage.getItem("name") || "";
     });
-    
+  
     const handleProvideIngredientsClick = () => {
-      setName('test');
-    }
-
+      setName("test");
+    };
+  
     useEffect(() => {
       localStorage.setItem("name", name);
     }, [name]);
-
-    
+  
     const [calories, setCalories] = useState("");
-    
-    const fetchRecipesAndUpdate = async() => {
-      let response= (await fetchRecipes(name))
+  
+    const fetchRecipesAndUpdate = async () => {
+      let response = await fetchRecipes(name);
       setMessage(await response.text());
-    }
-    
-    // Get the name boxes and search bar elements
-
+    };
+  
     function parse(data) {
       console.log(data);
-      return data
+      return data;
     }
-    
+  
     const btnStyle = {
-      fontSize: 16, 
-      color: "white", 
-      backgroundColor: "#013220",
-      borderRadius: '6px',
+      fontSize: 16,
+      color: "white",
+      backgroundColor: "cornflowerblue",
+      borderRadius: "6px",
       border: 0,
       padding: 10,
-      margin: '0 10px',
-      cursor: 'pointer',
-      width: 190
-    }
-            return (
-              <div className="App">
-
-              <div>
-                {/* <div style={{ backgroundColor: "#A4BFEB", padding: '10px', color: '#fff' }}>
-                  <RouterProvider style={{ color: '#fff' }} router={router} />
-                </div> */}
-                  <div style={{ textAlign: "center" }}>
-                    <div style={{ display: 'flex', textAlign: 'center' }}>
-                    <img className='foodImg' style={{ left: 0, top: 10 }} src="https://em-content.zobj.net/thumbs/120/google/350/avocado_1f951.png"/>
-                    <h1 className="logo">froogle</h1>
-                    </div>
-
-                    <input className="search" style={{ 
-marginBottom: '30px',
-width: "40%",
-height: 15,
-backgroundColor: "#eee",
-border: "1px solid #eee",
-padding: '18px 20px',
-borderRadius: 30,
-fontSize: 16,
-boxShadow: 'rgba(0, 0, 0, 0.1) 0px 2px 2px'
-                    }} type="text" placeholder="Enter some ingredients"
-              onChange={(event) => { setName(event.target.value); }}/>
-              <div>
-              <button style={{...btnStyle}} onClick={() => {
+      margin: "0 10px",
+      cursor: "pointer",
+      width: 190,
+    };
+  
+    const handleClearStorageClick = () => {
+      localStorage.clear();
+      setProjects([...defaultFoods]);
+    };
+  
+    return (
+      <div className="App">
+        <div>
+          <div style={{ textAlign: "center", position: "relative" }}>
+            <h1 className="logo">🥑 froogle</h1>
+            <input
+              className="search"
+              style={{
+                marginBottom: "30px",
+                width: "40%",
+                height: 15,
+                backgroundColor: "#eee",
+                border: "1px solid #eee",
+                padding: "18px 20px",
+                borderRadius: 30,
+                fontSize: 16,
+                boxShadow: "rgba(0, 0, 0, 0.1) 0px 2px 2px",
+              }}
+              type="text"
+              placeholder="Enter some ingredients"
+              onChange={(event) => {
+                setName(event.target.value);
+              }}
+            />
+            <div>
+              <button
+                style={{ ...btnStyle }}
+                onClick={() => {
                   if (!name || !name.trim()) return;
                   let _projects = [...projects];
                   _projects.push({
-                    name: name
-                  })
-                  setProjects(_projects)
-                  fetchRecipesAndUpdate();  
-                }}>Search for Recipes</button>
-              <button style={btnStyle} onClick={handleProvideIngredientsClick}>Provide Ingredients</button>
-                  </div>
-                </div>
-              </div>
-              <div style={{ padding: '20px 20%' }}>
-                <div style={{ display: 'flex', minHeight: 70, overflowX: 'scroll' }}>
-                  {projects.map(projectMapper)}
-                </div>    
-                <div>
-                <br></br>
-                </div>                
-                <p>{parse(JSON.stringify(message))}</p>
-                <p>{choice(DEFAULTS)}</p>
-                </div>
-                </div>
-                );
-              }
+                    name: name,
+                  });
+                  setProjects(_projects);
+                  fetchRecipesAndUpdate();
+                }}
+              >
+                Search for Recipes
+              </button>
+              <button style={btnStyle} onClick={handleProvideIngredientsClick}>
+                Provide Ingredients
+              </button>
+              <button style={btnStyle} onClick={handleClearStorageClick}>
+                Clear Local Storage
+              </button>
+            </div>
+          </div>
+        </div>
+        <div style={{ padding: "20px 20%" }}>
+          <div style={{ display: "flex", minHeight: 70, overflowX: "scroll" }}>
+            {projects.map(projectMapper)}
+          </div>
+          <div>
+            <br></br>
+          </div>
+          <p>{parse(JSON.stringify(message))}</p>
+          <p>{choice(DEFAULTS)}</p>
+        </div>
+      </div>
+    );
+  }
+  
                             
 export default App;
