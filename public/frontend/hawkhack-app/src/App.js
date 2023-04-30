@@ -142,6 +142,8 @@ const Project = ({ project }) => {
   
     return (
       <div className="App">
+        <div style={{   height: '200px', width: '200px', rotate: '30deg', zIndex: -1, backgroundColor: 'green', opacity: 0.05, position: 'absolute', left: 0, top: -90 }}></div>
+        <div style={{   height: '200px', width: '200px', rotate: '30deg', zIndex: -1, backgroundColor: 'green', opacity: 0.05, position: 'absolute', right: -10, top: 100, borderRadius: '50%' }}></div>
         <div>
           <div style={{ textAlign: "center", position: "relative" }}>
             
