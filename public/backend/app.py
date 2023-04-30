@@ -1,9 +1,39 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 import openai
+import requests
+
+def getGooglekey():
+    with open("secrets/google_key.txt") as f:
+        return f.read()
+def getGoogleCX():
+    with open("secrets/google_cx.txt") as f:
+        return f.read()
+
+def get_image_url(query):
+    url = "https://www.googleapis.com/customsearch/v1"
+
+    params = {
+        "key": getGooglekey(),
+        "cx": getGoogleCX(),
+        "q": f"{query}",
+        "searchType": "image",
+    }
+
+    response = requests.get(url, params=params)
+
+    if response.status_code == 200:
+        results = response.json()["items"]
+        if results:
+            return results[0]["link"]
+    return None
+
+# print (get_image_url("mulukhiyah" ))
 
 app = Flask(__name__)
+
+
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 

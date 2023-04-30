@@ -21,7 +21,8 @@ const router = createBrowserRouter([
     path: "/",
     element: (
       <div style={{ textAlign: 'center' }}>
-        <img className='foodImg' style={{ left: 10, top: 10 }} src="https://em-content.zobj.net/thumbs/160/apple/354/sushi_1f363.png" width="40px"/>
+        <img className='foodImg' style={{ left: 10, top: 10 }} src="https://em-content.zobj.net/thumbs/120/google/350/avocado_1f951.png" width="40px"/>
+        <img className='foodImg' style={{ left: 23, top: 55 }} src="https://em-content.zobj.net/thumbs/120/google/350/watermelon_1f349.png" width="40px"/>
       <h1>froogle</h1>
       {/* <Link style={{ color: '#eee' }} to="/about"> About Us</Link> */}
       {/* &nbsp; */}
@@ -103,41 +104,18 @@ const router = createBrowserRouter([
             }
             
             return (
-              <div className="App" style={{ display: 'flex' }}>
+              <div className="App">
               <div className='left'>
                 <style>
                   @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap');
                 </style>
-                <div style={{ backgroundColor: "#A4BFEB", padding: '10px', color: '#fff' }}>
+                {/* <div style={{ backgroundColor: "#A4BFEB", padding: '10px', color: '#fff' }}>
                   <RouterProvider style={{ color: '#fff' }} router={router} />
-                </div>
+                </div> */}
                 <div className='description'>
-                  <div>
-                    <h2>Welcome to Froogle! 👋</h2>
-                    <h3>About</h3>
-                    <p>
-                      Welcome to our revolutionary cooking website! 
-                      Our one of a kind platform provides you with personalized recipe 
-                      recommendations based on the ingredients you have on hand!
-                    </p>
-                    <h3>Instructions</h3>
-                    <p>
-                    Simply input the ingredients you have , and let the magic work!  We will generate a list of mouthwatering, legendary recipes for you to choose from! Whether you're a beginner in the kitchen or an experienced chef, our website is designed to help you cook the perfect meal in no time!
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className='right'>
-              
-              <input type="text" placeholder="Enter some ingredients" style={{ 
-                margin: '30px 0',
-                width: "50%", 
-                height: 15,
-                backgroundColor: "#efefef",
-                border: "1px solid #eee",
-                padding: '12px 15px',
-                borderRadius: 15
-              }} 
+                  <div style={{ textAlign: "center" }}>
+                    <h1 className="logo">froogle</h1>
+                    <input className="search" type="text" placeholder="Enter some ingredients"
               onChange={(event) => { setName(event.target.value); }}/>
               <button style={
                 { 
@@ -146,18 +124,22 @@ const router = createBrowserRouter([
                   backgroundColor: "#71697A" }
                 } onClick={() => {
                   let _projects = [...projects];
-                  
                   _projects.push({
                     name: name
                   })
                   setProjects(_projects)
                   fetchRecipesAndUpdate();  
                 }}>Add</button>
+                  </div>
+                </div>
+              </div>
+              <div>
+              
+
                 <div style={{ display: "flex", gridTemplateColumns: 'repeat(3, 1fr)' }}>
                 {projects.map(projectMapper)}
                 </div>    
                 <div>
-                <br></br>
                 <br></br>
                 </div>
                 
@@ -168,4 +150,3 @@ const router = createBrowserRouter([
               }
                             
 export default App;
-              

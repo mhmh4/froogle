@@ -67,26 +67,20 @@ color:blue;
   padding: 0 10px;
 }
 
-
-.left {
-  height: 100vh;
-  width: 30%;
-  border-right: 1px solid #eee;
+.search {
+  margin: '30px 0';
+  width: "20%"; 
+  height: 15;
+  background-color: "#000";
+  border: "1px solid #eee";
+  padding: '12px 15px';
+  border-radius: 30;
 }
-
-.right {
-  width: 70%;
-  text-align: center;
-  /* background-color: green; */
-}
-
-.description {
-  padding: 0 10px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-}
-
 .foodImg {
   position: absolute;
   opacity: 0.4;
+}
+
+.logo {
+  font-size: 70px;
 }
