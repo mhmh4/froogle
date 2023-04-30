@@ -181,9 +181,10 @@ const projectMapper = (project) => {
 };
 const projectStyle = {
   border: '1.5px solid #ddd',
-  width: "150px",
+  width: "200px",
+  margin: '10px 10px',
   borderRadius: 12,
-  transition: "border-color 0.2s ease-in-out"
+  // transition: "border-color 0.2s ease-in-out"
 }
 
 const hoverProjectStyle = {
@@ -206,8 +207,6 @@ const Project = ({ project }) => {
     </div>
   );
 };
-
-
 
   const storageArray =[];
   
@@ -232,6 +231,10 @@ const Project = ({ project }) => {
       return localStorage.getItem("name") || "";
     });
     
+    const handleProvideIngredientsClick = () => {
+      setName('test');
+    }
+
     useEffect(() => {
       localStorage.setItem("name", name);
     }, [name]);
@@ -275,7 +278,7 @@ const Project = ({ project }) => {
                     <img className='foodImg' style={{ right: 350, top: 1, rotate: '40deg' }} src="https://em-content.zobj.net/thumbs/120/apple/354/strawberry_1f353.png"/>
                     <img className='foodImg' style={{ right: 430, top: 40, rotate: '30deg' }} src="https://em-content.zobj.net/thumbs/120/apple/354/bell-pepper_1fad1.png"/>
                     <img className='foodImg' style={{ right: 343, top: 55 }} src="https://em-content.zobj.net/thumbs/120/google/350/watermelon_1f349.png"/>
-                {/* <img className='foodImg' style={{ right: 50, top: 100 }} src="https://em-content.zobj.net/thumbs/120/apple/354/mango_1f96d.png"/> */}
+                <img className='foodImg' style={{ left: 330, top: 50 }} src="https://em-content.zobj.net/thumbs/120/apple/354/mango_1f96d.png"/>
 
                 {/* <img className='foodImg' style={{ left: 20, top: 155 }} src="https://em-content.zobj.net/thumbs/120/apple/354/bread_1f35e.png"/> */}
 
@@ -288,7 +291,7 @@ border: "1px solid #eee",
 padding: '18px 20px',
 borderRadius: 30,
 fontSize: 16,
-boxShadow: 'rgba(0, 0, 0, 0.15) 0px 3px 8px'
+boxShadow: 'rgba(0, 0, 0, 0.1) 0px 2px 2px'
                     }} type="text" placeholder="Enter some ingredients"
               onChange={(event) => { setName(event.target.value); }}/>
               <div>
@@ -301,14 +304,12 @@ boxShadow: 'rgba(0, 0, 0, 0.15) 0px 3px 8px'
                   setProjects(_projects)
                   fetchRecipesAndUpdate();  
                 }}>Search for Recipes</button>
-              <button style={btnStyle} onClick={() => {
-                setName(choice(DEFAULTS));
-              }}>Provide Ingredients</button>
+              <button style={btnStyle} onClick={handleProvideIngredientsClick}>Provide Ingredients</button>
                   </div>
                 </div>
               </div>
-              <div style={{ padding: '20px 17%' }}>
-                <div style={{ display: 'flex', minHeight: 70 }}>
+              <div style={{ padding: '20px 20%' }}>
+                <div style={{ display: 'flex', minHeight: 70, overflow: 'scroll' }}>
                   {projects.map(projectMapper)}
                 </div>    
                 <div>
