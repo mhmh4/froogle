@@ -34,7 +34,7 @@ def generate_recipes():
     return call_chatgpt_api(query_string)
 
 def main():
-    call_chatgpt_api()
+    ...
 
 if __name__ == "__main__":
     main()
