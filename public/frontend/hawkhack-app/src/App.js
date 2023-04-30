@@ -33,14 +33,50 @@ const projectMapper = (project) => {
     border: '1.5px solid #ddd',
     width: "150px",
     borderRadius: 12,
-  }
-  return (<>
-    <br></br>
-    <div style={projectStyle}>
-    <p style={{ fontWeight: "bold", }}>{project.name}</p>
+  };
+  
+  return (
+    <>
+      <br />
+      <div style={projectStyle} onClick={() => {
+        const searchInput = document.querySelector('.search');
+        searchInput.value = project.name;
+      }}>
+        <p style={{ fontWeight: "bold" }}>{project.name}</p>
+      </div>
+    </>
+  );
+};
+const projectStyle = {
+  border: '1.5px solid #ddd',
+  width: "150px",
+  borderRadius: 12,
+  transition: "border-color 0.2s ease-in-out"
+}
+
+const hoverProjectStyle = {
+  ...projectStyle,
+  borderColor: "red"
+}
+
+const Project = ({ project }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleHover = () => setIsHovered(!isHovered);
+
+  return (
+    <div
+      style={isHovered ? hoverProjectStyle : projectStyle}
+      onMouseEnter={handleHover}
+      onMouseLeave={handleHover}
+    >
+      <p style={{ fontWeight: "bold" }}>{project.name}</p>
     </div>
-    </>)
-  }
+  );
+};
+
+
+
   const storageArray =[];
   
   async function fetchRecipes(input) {
@@ -75,31 +111,17 @@ const projectMapper = (project) => {
       let response= (await fetchRecipes(name))
       setMessage(await response.text());
     }
+    
     // Get the name boxes and search bar elements
-    const nameBoxes = document.querySelectorAll('.name-box');
-    const searchBar = document.querySelector('#search-bar');
 
-// Loop through each name box and add a click event listener
-    nameBoxes.forEach(nameBox => {
-      nameBox.addEventListener('click', () => {
-        // Copy the value of the clicked name box to the search bar
-        searchBar.value = nameBox.value;
-      });
-    });
-
-    function parse(data) {
-      console.log(data);
-      return data;
-    }
     
     const btnStyle = {
       fontSize: 20, 
       color: "white", 
-      backgroundColor: "cornflowerblue",
+      backgroundColor: "#71697A",
       borderRadius: '3px',
       border: 0,
-      padding: 10,
-      margin: '0 10px'
+      padding: 10
     }
             return (
               <div className="App">
@@ -138,7 +160,8 @@ boxShadow: 'rgba(0, 0, 0, 0.15) 0px 3px 8px'
                   setProjects(_projects)
                   fetchRecipesAndUpdate();  
                 }}>froogle search</button>
-              <button style={btnStyle}>Get some ingredients</button>
+
+              <button className='Btn'>I'm feeling lucky</button>
                   </div>
                 </div>
               </div>
@@ -152,7 +175,7 @@ boxShadow: 'rgba(0, 0, 0, 0.15) 0px 3px 8px'
                 <br></br>
                 </div>
                 
-                <p>{parse(JSON.stringify(message))}</p>
+                <p>{JSON.stringify(message)}</p>
                 </div>
                 </div>
                 );
