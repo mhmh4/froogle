@@ -130,11 +130,12 @@ Simply input the ingredients you have , and let the magic work!  We will generat
               <div className='right'>
               
               <input type="text" placeholder="Enter some ingredients" style={{ 
-                width: "40%", 
+                margin: '30px 0',
+                width: "50%", 
                 height: 15,
                 backgroundColor: "#efefef",
                 border: "1px solid #eee",
-                padding: '10px',
+                padding: '12px 15px',
                 borderRadius: 15
               }} 
               onChange={(event) => { setName(event.target.value); }}/>
