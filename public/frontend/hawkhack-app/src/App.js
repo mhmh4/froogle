@@ -128,7 +128,7 @@ const Project = ({ project }) => {
       let response = await fetchRecipes(name);
       setMessage(await response.text());
     };
-  
+    
     function parse(data) {
       console.log(data);
       return data;
@@ -232,8 +232,8 @@ const Project = ({ project }) => {
           <div>
             <br></br> 
             </div>
-            <p>{parse(JSON.stringify(message))}</p>
-            <p>{choice(DEFAULTS)}</p>
+            <p>
+            <ol>{parse(message)} </ol></p>
          
               
         </div>
