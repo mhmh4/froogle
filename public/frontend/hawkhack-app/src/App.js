@@ -182,7 +182,7 @@ const projectMapper = (project) => {
 const projectStyle = {
   border: '1.5px solid #ddd',
   width: "200px",
-  margin: '10px 10px',
+  margin: '5px 5px',
   borderRadius: 12,
   // transition: "border-color 0.2s ease-in-out"
 }
