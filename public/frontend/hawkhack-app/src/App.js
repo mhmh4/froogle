@@ -134,7 +134,7 @@ const Project = ({ project }) => {
     const btnStyle = {
       fontSize: 16,
       color: "white",
-      backgroundColor: "cornflowerblue",
+      backgroundColor: "#013220",
       borderRadius: "6px",
       border: 0,
       padding: 10,
@@ -167,7 +167,7 @@ const Project = ({ project }) => {
                 boxShadow: "rgba(0, 0, 0, 0.1) 0px 2px 2px",
               }}
               type="text"
-              placeholder="Enter some ingredients"
+              placeholder="Enter some ingredients here"
               onChange={(event) => {
                 setName(event.target.value);
               }}
@@ -191,7 +191,7 @@ const Project = ({ project }) => {
                 Provide Ingredients
               </button>
               <button style={btnStyle} onClick={handleClearStorageClick}>
-                Clear Local Storage
+                Clear History
               </button>
             </div>
           </div>
