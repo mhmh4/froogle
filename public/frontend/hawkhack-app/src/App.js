@@ -151,7 +151,7 @@ const Project = ({ project }) => {
       setProjects([...defaultFoods]);
     };
   
-    let buttonState = false;
+
     return (
       <div className="App">
         <div style={{   height: '200px', width: '200px', rotate: '30deg', zIndex: -1, backgroundColor: 'green', opacity: 0.05, position: 'absolute', left: 0, top: -90 }}></div>
@@ -204,7 +204,7 @@ const Project = ({ project }) => {
                   });
                   setProjects(_projects);
                   fetchRecipesAndUpdate();
-                  buttonState = true;
+                  
                   
                 }}
               >
@@ -225,8 +225,11 @@ const Project = ({ project }) => {
             {projects.map(projectMapper)}
           </div>
           <div>
-            <br></br>
-          </div>
+            <br></br> 
+            </div>
+            <p>{parse(JSON.stringify(message))}</p>
+            <p>{choice(DEFAULTS)}</p>
+         
               
         </div>
       </div>
