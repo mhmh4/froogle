@@ -20,8 +20,8 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <div>
-      <h1>Froogle</h1>
+      <div style={{ textAlign: 'center' }}>
+      <h1>froogle</h1>
       {/* <Link style={{ color: '#eee' }} to="/about"> About Us</Link> */}
       {/* &nbsp; */}
       {/* <Link style={{ color: '#eee' }} to="/mainapp"> Mainapp</Link> */}
@@ -115,12 +115,14 @@ const router = createBrowserRouter([
               <RouterProvider style={{ color: '#fff' }} router={router} />
               </div>
               <div>
-              <h2>About</h2>
+              <h2>Welcome to Froogle! 👋</h2>
+              <h3>About</h3>
               <p>
               Welcome to our revolutionary cooking website! 
               Our one of a kind platform provides you with personalized recipe 
               recommendations based on the ingredients you have on hand!</p>
                 <p>
+              <h3>Instructions</h3>
 Simply input the ingredients you have , and let the magic work!  We will generate a list of mouthwatering, legendary recipes for you to choose from! Whether you're a beginner in the kitchen or an experienced chef, our website is designed to help you cook the perfect meal in no time!
               </p>
               </div>

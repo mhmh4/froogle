@@ -10,7 +10,7 @@
 }
 
 .App {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .App h1, .App h2, .App h3, .App h4, .App h5, .App h6 {
@@ -33,8 +33,8 @@
   min-height: 100vh;
   display: flex;
   /* flex-direction: column; */
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
+  /* justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -76,5 +76,6 @@ color:blue;
 
 .right {
   width: 75%;
+  text-align: center;
   /* background-color: green; */
 }
