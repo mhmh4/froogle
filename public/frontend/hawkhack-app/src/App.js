@@ -22,11 +22,11 @@ const router = createBrowserRouter([
     element: (
       <div>
       <h1>Froogle</h1>
-      <Link style={{ color: '#eee' }} to="/about"> About Us</Link>
-      &nbsp;
-      <Link style={{ color: '#eee' }} to="/mainapp"> Mainapp</Link>
-      &nbsp;
-      <Link style={{ color: '#eee' }} to="/placeholder">Placeholder</Link>
+      {/* <Link style={{ color: '#eee' }} to="/about"> About Us</Link> */}
+      {/* &nbsp; */}
+      {/* <Link style={{ color: '#eee' }} to="/mainapp"> Mainapp</Link> */}
+      {/* &nbsp; */}
+      {/* <Link style={{ color: '#eee' }} to="/placeholder">Placeholder</Link> */}
       </div>
       ),
       
@@ -89,7 +89,6 @@ const router = createBrowserRouter([
           const storageArray =[];
           
           async function fetchRecipes(input) {
-            let parameters = '';
             console.log("name=" + input);
             return await fetch(`http://localhost:5000/recipes?${input}`)
           }
@@ -112,7 +111,7 @@ const router = createBrowserRouter([
               <style>
               @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap');
               </style>
-              <div style={{ backgroundColor: "#104911", padding: '3px 0px', color: '#fff' }}>
+              <div style={{ backgroundColor: "#759EB8", padding: '10px', color: '#fff' }}>
               <RouterProvider style={{ color: '#fff' }} router={router} />
               </div>
               <div>
