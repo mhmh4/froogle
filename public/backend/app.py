@@ -58,10 +58,16 @@ def call_chatgpt_api(input):
     recipe_names = completion.choices[0].message.content
     recipe_names= recipe_names.split("\n")
     for i in range(len(recipe_names)):
-        # get rid of the number before the recipe name
         recipe_names[i] = recipe_names[i][3:]
-    print(recipe_names)
-
+    # print(recipe_names)
+    image_urls = []
+    for recipe in recipe_names:
+        image_urls.append(get_image_url(recipe))
+    data = []
+    for a, b in zip(recipe_names, image_urls):
+        data.append([a, b])
+    print(data)
+    return data
     # recipe_names = []
     # completion2 = openai.ChatCompletion.create(
     #     model="gpt-3.5-turbo",
@@ -71,26 +77,28 @@ def call_chatgpt_api(input):
     # )
     # print(completion2.choices[0].message.content)
     # return (completion.choices[0].message.content)
-    return completion.choices[0].message.content
+    # return completion.choices[0].message.content
+    return data
 
 
 def main():
-    ingredients = "lemon, apple, yogurt"
-    recipe_names = call_chatgpt_api(ingredients).split("\n")  # split recipe names by newline
-    for recipe in recipe_names:
-        image_url = get_image_url(recipe.strip())
-        print(recipe.strip(), image_url)
-
+    ...
+    # ingredients = "lemon, apple, yogurt"
+    # recipe_names = call_chatgpt_api(ingredients)
+    # image_urls = []
+    # for recipe in recipe_names:
+    #     image_urls.append(get_image_url(recipe))
+    # data = []
+    # for a, b in zip(recipe_names, image_urls):
+    #     data.append([a, b])
+    # print(data)
+        
 
 @app.route("/recipes")
 def generate_recipes():
     query_string = str(request.query_string)
-    print(query_string)
-    res = call_chatgpt_api(query_string)
-    recipe_names = call_chatgpt_api(res)
-    image_urls = [get_image_url(recipe) for recipe in recipe_names]  # get image URL for each 
-    for i in image_urls:
-        print(i)
-    return "\n".join(image_urls) + recipe_names
+    return call_chatgpt_api(query_string)
+    
 
-main()
+if __name__ == "__main__":
+    main()
