@@ -42,12 +42,6 @@ const router = (
 const defaultFoods = [];
 
 const projectMapper = (project) => {
-  const projectStyle = {
-    border: '1.5px solid #ddd',
-    width: "200px !important",
-    borderRadius: 12,
-  };
-
   return (
     <>
       <br />
@@ -68,7 +62,8 @@ const projectStyle = {
   borderRadius: 12,
   // transition: "border-color 0.2s ease-in-out"
   textOverflow: 'ellipsis',
-  cursor: 'pointer'
+  cursor: 'pointer',
+  padding: '0 10px'
 }
 
 const hoverProjectStyle = {
