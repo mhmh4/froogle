@@ -42,35 +42,30 @@ const router = (
 const defaultFoods = [];
 
 const projectMapper = (project) => {
-  const projectStyle = {
-    border: '1.5px solid #ddd',
-    width: "200px !important",
-    borderRadius: 12,
-  };
-  
   return (
     <>
       <br />
-      <div style={projectStyle} onClick={() => {
+      <div className='project' style={projectStyle} onClick={() => {
         const searchInput = document.querySelector('.search');
         searchInput.value = project.name;
       }}>
-        <p style={{ fontWeight: "bold" }}>{project.name}</p>
+        <p>{project.name}</p>
       </div>
     </>
   );
 };
 const projectStyle = {
-  border: '1.5px solid #ddd',
-  width: "200px",
+  border: '1px solid #cdcdcd',
+  minWidth: "200px !impotant",
   margin: '5px 5px',
+  padding: '0 10px',
   borderRadius: 12,
   // transition: "border-color 0.2s ease-in-out"
+  textOverflow: 'ellipsis'
 }
 
 const hoverProjectStyle = {
   ...projectStyle,
-  borderColor: "red"
 }
 
 const Project = ({ project }) => {
