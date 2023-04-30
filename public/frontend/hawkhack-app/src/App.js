@@ -184,7 +184,7 @@ const Project = ({ project }) => {
               type="text"
               
               placeholder="Enter some ingredients here..."
-            
+              value = {name}
               onChange={(event) => {
               setName(event.target.value);
                 
