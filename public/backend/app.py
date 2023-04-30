@@ -1,6 +1,6 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify   
 
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS, cross_origin   
 import openai
 import requests
 
@@ -93,11 +93,14 @@ def main():
     #     data.append([a, b])
     # print(data)
         
-
 @app.route("/recipes")
 def generate_recipes():
     query_string = str(request.query_string)
-    return call_chatgpt_api(query_string)
+    response = call_chatgpt_api(query_string)
+    return jsonify(response)
+
+if __name__ == "__main__":
+    app.run()
     
 
 if __name__ == "__main__":
