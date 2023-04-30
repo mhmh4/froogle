@@ -21,12 +21,12 @@ const router = createBrowserRouter([
     path: "/",
     element: (
       <div>
-        <h1>Froogle</h1>
-        <Link style={{ color: '#eee' }} to="/about"> About Us</Link>
-        &nbsp;
-        <Link style={{ color: '#eee' }} to="/mainapp"> Mainapp</Link>
-        &nbsp;
-        <Link style={{ color: '#eee' }} to="/placeholder">Placeholder</Link>
+      <h1>Froogle</h1>
+      <Link style={{ color: '#eee' }} to="/about"> About Us</Link>
+      &nbsp;
+      <Link style={{ color: '#eee' }} to="/mainapp"> Mainapp</Link>
+      &nbsp;
+      <Link style={{ color: '#eee' }} to="/placeholder">Placeholder</Link>
       </div>
       ),
       
@@ -108,21 +108,21 @@ const router = createBrowserRouter([
             
             return (
               <div className="App" style={{ display: 'flex' }}>
-                <div>
-
-                <style>
-                @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap');
-                </style>
+              <div className='left'>
+              
+              <style>
+              @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap');
+              </style>
               <div style={{ backgroundColor: "#104911", padding: '3px 0px', color: '#fff' }}>
-                <RouterProvider style={{ color: '#fff' }} router={router} />
+              <RouterProvider style={{ color: '#fff' }} router={router} />
               </div>
               <div>
-                <p>put this into a grid and beef up text</p>
+              <p>put this into a grid and beef up text</p>
               </div>
-                </div>
-              <div>
-
-
+              </div>
+              <div className='right'>
+              
+              
               <input type="text" placeholder="Enter some ingredients" style={{ 
                 width: "40%", 
                 height: 15,
@@ -138,27 +138,28 @@ const router = createBrowserRouter([
                   color: 'white',
                   backgroundColor: "#71697A" }
                 } onClick={() => {
-                    let _projects = [...projects];
-                    
-                    _projects.push({
-                      name: name
-                    })
-                    setProjects(_projects)
-                    fetchRecipesAndUpdate();  
-                  }}>Add</button>
-              <div style={{ display: "flex", gridTemplateColumns: 'repeat(3, 1fr)' }}>
-                {projects.map(projectMapper)}
-              </div>    
-              <div>
-              <br></br>
-              <br></br>
-                  </div>
+                  let _projects = [...projects];
                   
-                  <p>{JSON.stringify(message)}</p>
-                  </div>
-            </div>
-                  );
-                }
-
+                  _projects.push({
+                    name: name
+                  })
+                  setProjects(_projects)
+                  fetchRecipesAndUpdate();  
+                }}>Add</button>
+                <div style={{ display: "flex", gridTemplateColumns: 'repeat(3, 1fr)' }}>
+                {projects.map(projectMapper)}
+                </div>    
+                <div>
+                <br></br>
+                <br></br>
+                </div>
                 
-                export default App;
+                <p>{JSON.stringify(message)}</p>
+                </div>
+                </div>
+                );
+              }
+              
+              
+              export default App;
+              
