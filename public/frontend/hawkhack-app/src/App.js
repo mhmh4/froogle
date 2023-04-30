@@ -79,9 +79,9 @@ const router = createBrowserRouter([
             const [message, setMessage] = useState("");            
             const [projects, setProjects] = useState([...defaultFoods]);
             const [name, setName] = useState("");
-            const [calories, setCalories] = useState("");
             
             const fetchRecipesAndUpdate = async() => {
+              if (name && !name.trim()) return;
               let response= (await fetchRecipes(name))
               setMessage(await response.text());
             }
@@ -89,10 +89,12 @@ const router = createBrowserRouter([
             const btnStyle = {
               fontSize: 20, 
               color: "white", 
-              backgroundColor: "#71697A",
+              backgroundColor: "cornflowerblue",
               borderRadius: '3px',
               border: 0,
-              padding: 10
+              padding: 10,
+              width: '180px',
+              margin: '0 10px'
             }
 
             return (
@@ -113,26 +115,27 @@ const router = createBrowserRouter([
 
                     <input className="search" style={{ 
 marginBottom: '30px',
-width: "40%",
-height: 15,
+width: "50%",
+height: 13,
 backgroundColor: "#efefef",
 border: "1px solid #eee",
 padding: '18px 20px',
 borderRadius: 30,
 fontSize: 16,
-boxShadow: 'rgba(0, 0, 0, 0.15) 0px 3px 8px'
+boxShadow: 'rgba(0, 0, 0, 0.3) 0px 3px 8px'
                     }} type="text" placeholder="Enter some ingredients"
               onChange={(event) => { setName(event.target.value); }}/>
               <div>
               <button style={btnStyle} onClick={() => {
-                  let _projects = [...projects];
+                if (!(name && !name.trim())) return;
+                let _projects = [...projects];
                   _projects.push({
                     name: name
                   })
                   setProjects(_projects)
                   fetchRecipesAndUpdate();  
                 }}>froogle search</button>
-              <button className='Btn'>I'm feeling lucky</button>
+              <button style={btnStyle}>Test Run</button>
                   </div>
                 </div>
               </div>
