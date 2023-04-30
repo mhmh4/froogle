@@ -97,19 +97,21 @@ const router = createBrowserRouter([
 
             return (
               <div className="App">
-                {/* <img className='foodImg' style={{ left: 10, top: 10 }} src="https://em-content.zobj.net/thumbs/120/google/350/avocado_1f951.png"/>
-                <img className='foodImg' style={{ right: 23, top: 55 }} src="https://em-content.zobj.net/thumbs/120/google/350/watermelon_1f349.png"/>
-                <img className='foodImg' style={{ right: 50, top: 100 }} src="https://em-content.zobj.net/thumbs/120/apple/354/mango_1f96d.png"/>
+                {/* <img className='foodImg' style={{ right: 23, top: 55 }} src="https://em-content.zobj.net/thumbs/120/google/350/watermelon_1f349.png"/> */}
+                {/* <img className='foodImg' style={{ right: 50, top: 100 }} src="https://em-content.zobj.net/thumbs/120/apple/354/mango_1f96d.png"/> */}
 
-                <img className='foodImg' style={{ left: 20, top: 155 }} src="https://em-content.zobj.net/thumbs/120/apple/354/bread_1f35e.png"/> */}
+                {/* <img className='foodImg' style={{ left: 20, top: 155 }} src="https://em-content.zobj.net/thumbs/120/apple/354/bread_1f35e.png"/> */}
 
               <div>
                 {/* <div style={{ backgroundColor: "#A4BFEB", padding: '10px', color: '#fff' }}>
                   <RouterProvider style={{ color: '#fff' }} router={router} />
                 </div> */}
                 <div className='description'>
-                  <div style={{ textAlign: "center" }}>
+                  <div style={{ textAlign: "center", position: "relative" }}>
+                    <img className='foodImg' style={{ left: 370, top: 20 }} src="https://em-content.zobj.net/thumbs/120/google/350/avocado_1f951.png"/>
                     <h1 className="logo">froogle</h1>
+                    <img className='foodImg' style={{ right: 350, top: 1 }} src="https://em-content.zobj.net/thumbs/120/apple/354/strawberry_1f353.png"/>
+
                     <input className="search" style={{ 
 marginBottom: '30px',
 width: "40%",
