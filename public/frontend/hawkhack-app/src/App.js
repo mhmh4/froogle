@@ -61,7 +61,8 @@ const projectStyle = {
   padding: '0 10px',
   borderRadius: 12,
   // transition: "border-color 0.2s ease-in-out"
-  textOverflow: 'ellipsis'
+  textOverflow: 'ellipsis',
+  cursor: 'pointer'
 }
 
 const hoverProjectStyle = {
@@ -105,10 +106,6 @@ const Project = ({ project }) => {
     let [name, setName] = useState(() => {
       return localStorage.getItem("name") || "";
     });
-  
-    const handleProvideIngredientsClick = () => {
-      setName("test");
-    };
   
     useEffect(() => {
       localStorage.setItem("name", name);
@@ -195,7 +192,7 @@ const Project = ({ project }) => {
                 Search
               </button>
             <div>
-              <button style={{...btnStyle, margin: "0 10px"}} onClick={handleProvideIngredientsClick}>
+              <button style={{...btnStyle, margin: "0 10px"}} >
                 Provide Ingredients
               </button>
               <button style={{...btnStyle, margin: "0 10px"}} onClick={handleClearStorageClick}>
@@ -205,7 +202,7 @@ const Project = ({ project }) => {
           </div>
         </div>
         <div style={{ padding: "20px 20%" }}>
-          <div style={{ display: "flex", minHeight: 70, overflowX: "scroll", backgroundColor: '#eee', borderRadius: '5px' }}>
+          <div style={{ display: "flex", minHeight: 70, overflowX: "scroll", backgroundColor: '#eee', borderRadius: '10px' }}>
             {projects.map(projectMapper)}
           </div>
           <div>
