@@ -83,7 +83,6 @@ const router = createBrowserRouter([
             <br></br>
             <div style={projectStyle}>
             <p style={{ fontWeight: "bold", }}>{project.name}</p>
-            <p>{project.calories}</p>
             </div>
             </>)
           }
@@ -117,11 +116,17 @@ const router = createBrowserRouter([
               <RouterProvider style={{ color: '#fff' }} router={router} />
               </div>
               <div>
-              <p>put this into a grid and beef up text</p>
+              <h2>About</h2>
+              <p>
+              Welcome to our revolutionary cooking website! 
+              Our one of a kind platform provides you with personalized recipe 
+              recommendations based on the ingredients you have on hand!</p>
+                <p>
+Simply input the ingredients you have , and let the magic work!  We will generate a list of mouthwatering, legendary recipes for you to choose from! Whether you're a beginner in the kitchen or an experienced chef, our website is designed to help you cook the perfect meal in no time!
+              </p>
               </div>
               </div>
               <div className='right'>
-              
               
               <input type="text" placeholder="Enter some ingredients" style={{ 
                 width: "40%", 
