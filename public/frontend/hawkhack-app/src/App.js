@@ -95,11 +95,12 @@ const projectMapper = (project) => {
     const btnStyle = {
       fontSize: 20, 
       color: "white", 
-      backgroundColor: "cornflowerblue",
+      backgroundColor: "#A24936dd",
       borderRadius: '3px',
       border: 0,
       padding: 10,
-      margin: '0 10px'
+      margin: '0 10px',
+      cursor: 'pointer'
     }
             return (
               <div className="App">
@@ -130,7 +131,8 @@ boxShadow: 'rgba(0, 0, 0, 0.15) 0px 3px 8px'
                     }} type="text" placeholder="Enter some ingredients"
               onChange={(event) => { setName(event.target.value); }}/>
               <div>
-              <button style={btnStyle} onClick={() => {
+              <button style={{...btnStyle, backgroundColor: '#3E5641dd'}} onClick={() => {
+                  if (!name || !name.trim()) return;
                   let _projects = [...projects];
                   _projects.push({
                     name: name
@@ -142,11 +144,9 @@ boxShadow: 'rgba(0, 0, 0, 0.15) 0px 3px 8px'
                   </div>
                 </div>
               </div>
-              <div>
-              
-
-                <div style={{ display: "flex", gridTemplateColumns: 'repeat(3, 1fr)' }}>
-                {projects.map(projectMapper)}
+              <div style={{ padding: '20px 17%' }}>
+                <div style={{ display: 'flex' }}>
+                  {projects.map(projectMapper)}
                 </div>    
                 <div>
                 <br></br>
