@@ -75,7 +75,7 @@ const router = createBrowserRouter([
         
         const projectMapper = (project) => {
           const projectStyle = {
-            border: '1.5px solid #eee',
+            border: '1.5px solid #ddd',
             width: "150px",
             borderRadius: 12,
           }
@@ -107,25 +107,27 @@ const router = createBrowserRouter([
             return (
               <div className="App" style={{ display: 'flex' }}>
               <div className='left'>
-              
-              <style>
-              @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap');
-              </style>
-              <div style={{ backgroundColor: "#759EB8", padding: '10px', color: '#fff' }}>
-              <RouterProvider style={{ color: '#fff' }} router={router} />
-              </div>
-              <div>
-              <h2>Welcome to Froogle! 👋</h2>
-              <h3>About</h3>
-              <p>
-              Welcome to our revolutionary cooking website! 
-              Our one of a kind platform provides you with personalized recipe 
-              recommendations based on the ingredients you have on hand!</p>
-                <p>
-              <h3>Instructions</h3>
-Simply input the ingredients you have , and let the magic work!  We will generate a list of mouthwatering, legendary recipes for you to choose from! Whether you're a beginner in the kitchen or an experienced chef, our website is designed to help you cook the perfect meal in no time!
-              </p>
-              </div>
+                <style>
+                  @import url('https://fonts.googleapis.com/css2?family=Baloo+Da+2&display=swap');
+                </style>
+                <div style={{ backgroundColor: "#759EB8", padding: '10px', color: '#fff' }}>
+                  <RouterProvider style={{ color: '#fff' }} router={router} />
+                </div>
+                <div className='description'>
+                  <div>
+                    <h2>Welcome to Froogle! 👋</h2>
+                    <h3>About</h3>
+                    <p>
+                      Welcome to our revolutionary cooking website! 
+                      Our one of a kind platform provides you with personalized recipe 
+                      recommendations based on the ingredients you have on hand!
+                    </p>
+                    <h3>Instructions</h3>
+                    <p>
+                    Simply input the ingredients you have , and let the magic work!  We will generate a list of mouthwatering, legendary recipes for you to choose from! Whether you're a beginner in the kitchen or an experienced chef, our website is designed to help you cook the perfect meal in no time!
+                    </p>
+                  </div>
+                </div>
               </div>
               <div className='right'>
               

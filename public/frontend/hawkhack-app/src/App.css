@@ -70,12 +70,18 @@ color:blue;
 
 .left {
   height: 100vh;
-  width: 25%;
+  width: 30%;
   border-right: 1px solid #eee;
 }
 
 .right {
-  width: 75%;
+  width: 70%;
   text-align: center;
   /* background-color: green; */
+}
+
+.description {
+  padding: 0 10px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
