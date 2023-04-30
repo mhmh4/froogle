@@ -114,7 +114,15 @@ const router = createBrowserRouter([
                 <p>put this into a grid and beef up text</p>
               </div>
               
-              <input type="text" placeholder="Enter some ingredients" style={{ width: "40%", height: 15}}
+
+              <input type="text" placeholder="Enter some ingredients" style={{ 
+                width: "40%", 
+                height: 15,
+                backgroundColor: "#efefef",
+                border: "1px solid #eee",
+                padding: '10px',
+                borderRadius: 15
+              }} 
               onChange={(event) => { setName(event.target.value); }}/>
               <button style={
                 { 
