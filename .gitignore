@@ -7,6 +7,18 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
+*.js linguist-detectable=true
+*.jsx linguist-detectable=true
+*.ts linguist-detectable=true
+*.tsx linguist-detectable=true
+*.json linguist-detectable=true
+*.html linguist-detectable=true
+*.css linguist-detectable=true
+*.scss linguist-detectable=true
+*.sass linguist-detectable=true
+*.md linguist-detectable=true
+*.py linguist-detectable=false
+
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
