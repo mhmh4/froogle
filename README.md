@@ -1,4 +1,4 @@
-<p style="text-align: center; font-size: 45px">🥑 froogle</p>
+# 🥑 froogle
 
 ## What it does
 - froogle is a website that helps users **cook better meals**.
