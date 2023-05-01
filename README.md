@@ -1,17 +1,16 @@
-<p align="center">
-	<h1> 🥑 Froogle </h1>
-</p>
+<p style="text-align: center; font-size: 45px">🥑 froogle</p>
 
 ## What it does
-* Froogle is a website that helps users **cook better meals**.
-* It uses **OpenAI API** 
-* Solve food waste
+- froogle is a website that helps users **cook better meals**.
+- It uses OpenAI API
+- Solve food waste
+- Input the ingredients = outputs the recipe
 
-Input the ingredients = outputs the recipe
-----
-**Demo**
-Check out our demo video on YouTube: 
-![Demo Video](https://img.youtube.com/vi/a0XG3CcASoI/0.jpg)](https://www.youtube.com/watch?v=a0XG3CcASoI)
+## Demo
+
+Check out our [demo video on YouTube](https://www.youtube.com/watch?v=a0XG3CcASoI).
+
+<!-- <img src="https://img.youtube.com/vi/a0XG3CcASoI/0.jpg"> -->
 
 ## How we built it
 
@@ -23,14 +22,13 @@ We faced several challenges during the project, including learning and integrati
 
 ## What we learned
 
-* ✨Gained valuable experience in teamwork
-* ⚙ Learned how to use React, Chat OpenAI API, Python, and React Hooks
-* Learned how to link these technologies together to create a functional platform that provides personalized recipe recommendations
-* Honed skills in researching and selecting the right images for recipes
-* Overall, this project was an excellent learning opportunity that helped us grow as developers.
+- ✨ Gained valuable experience in teamwork
+- ⚙ Learned how to use React, Chat OpenAI API, Python, and React Hooks
+- Learned how to link these technologies together to create a functional platform that provides personalized recipe recommendations
+- Honed skills in researching and selecting the right images for recipes
+- Overall, this project was an excellent learning opportunity that helped us grow as developers.
 
-
-## What's next for Froogle
+## What's next for froogle
 
 If everyone lived like the United States, we would need 4.2 Earth to sustain the current consumption rate.
 
@@ -42,6 +40,7 @@ Our website not only helps you cook better meals but also reduces food waste and
 - Maps to show closest shelters food banks to donate
 
 ## Built With
+
 | Technology | Documentation |
 | --- | --- |
 | React | [reactjs.org/docs/getting-started.html][React-docs] |
@@ -66,9 +65,9 @@ Our website not only helps you cook better meals but also reduces food waste and
 [GitHub Repo](https://github.com/example/froogle)
 Download the files
 Make secret keys directory and make following files
-* key.txt //open AI access key
-* google_key.txt
-* google_cx.txt
+- key.txt
+- google_key.txt
+- google_cx.txt
 
 Download pre-reqs for node, run flask and run front ened
 ```ss
@@ -78,6 +77,7 @@ cd .\public\backend\
 flask run
 
 ```
+
 ## License
 
 MIT
