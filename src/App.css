@@ -5,17 +5,10 @@
 
 .App {
   padding: 0 5%;
-  /* text-align: center; */
-  /* background-color: #EAEAEA; */
 }
 
 .App h1, .App h2, .App h3, .App h4, .App h5, .App h6 {
   font-weight: normal;
-}
-
-.App-logo {
-  /* height: 40vmin; */
-  /* pointer-events: none; */
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -28,9 +21,6 @@
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
-  /* flex-direction: column; */
-  /* align-items: center; */
-  /* justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -47,9 +37,7 @@
     transform: rotate(360deg);
   }
 }
-.food{
-color:blue;
-}
+
 .Nav-links {
   display: flex;
   flex-direction: row;
@@ -63,20 +51,11 @@ color:blue;
   padding: 0 10px;
 }
 
-.foodImg {
-  /* position: absolute; */
-  /* position: relative; */
-  /* z-index: 0; */
-  /* opacity: 0.5; */
-  /* width: 80px; */
-}
-
 .logo {
   cursor: pointer;
   margin: 0;
   margin-top: 50px;
   transition: all 0.2s ease-in-out;
-  padding-top: 10%;
   font-size:125px;
 }
 
@@ -84,9 +63,10 @@ color:blue;
   transform: scale(1.04);
 }
 
-.heading{
+.heading {
   padding-bottom: 20px;
 }
+
 @keyframes fadeIn {
   0% { background-color: #eee; }
   100% { background-color: #ddd; }
@@ -97,6 +77,6 @@ color:blue;
   animation: fadeIn 0.3s;
 }
 
-.text{
+.text {
   font-size: 50px;
 }
