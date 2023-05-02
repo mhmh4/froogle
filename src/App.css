@@ -67,3 +67,14 @@
   background-color: #ddd;
   animation: fadeIn 0.3s;
 }
+
+.search:hover {
+  /* background-color: #e5e5e5 !important; */
+  /* border-color: #e5e5e5 !important; */
+  border-color: #dedede !important;
+}
+
+.search-btn:hover,
+.button2:hover {
+  opacity: 0.88;
+}

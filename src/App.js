@@ -181,6 +181,7 @@ const Project = ({ project }) => {
               }}
             />
               <button
+                className="search-btn"
                 style={{
                   ...btnStyle,
                   borderTopRightRadius: 13,
@@ -206,10 +207,10 @@ const Project = ({ project }) => {
                 Search
               </button>
             <div>
-              <button style={{...btnStyle, margin: "0 10px"}} onClick={handleProvideIngredientsClick} value={name}>
+              <button className="button2" style={{...btnStyle, margin: "0 10px"}} onClick={handleProvideIngredientsClick} value={name}>
                 Provide Ingredients
               </button>
-              <button style={{...btnStyle, margin: "0 10px"}} onClick={handleClearStorageClick}>
+              <button className="button2" style={{...btnStyle, margin: "0 10px"}} onClick={handleClearStorageClick}>
                 Clear History
               </button>
             </div>
