@@ -87,48 +87,48 @@ const Project = ({ project }) => {
 };
 
   const storageArray =[];
-  
+
   async function fetchRecipes(input) {
     console.log("name=" + input);
     return await fetch(`http://localhost:5000/recipes?${input}`)
   }
-  
+
   function App() {
     const [message, setMessage] = useState("");
     const [projects, setProjects] = useState(() => {
       const storedProjects = localStorage.getItem("projects");
       return storedProjects ? JSON.parse(storedProjects) : [...defaultFoods];
     });
-  
+
     useEffect(() => {
       localStorage.setItem("projects", JSON.stringify(projects));
     }, [projects]);
-  
+
     let [name, setName] = useState(() => {
       return localStorage.getItem("name") || "";
     });
-  
+
     const handleProvideIngredientsClick = () => {
       setName(choice(DEFAULTS));
     };
-    
-  
+
+
     useEffect(() => {
       localStorage.setItem("name", name);
     }, [name]);
-  
+
     const [calories, setCalories] = useState("");
-  
+
     const fetchRecipesAndUpdate = async () => {
       let response = await fetchRecipes(name);
       setMessage(await response.text());
     };
-    
+
     function parse(data) {
       console.log(data);
       return data;
     }
-  
+
     const btnStyle = {
       fontSize: 16,
       color: "white",
@@ -140,12 +140,12 @@ const Project = ({ project }) => {
       cursor: "pointer",
       width: 190,
     };
-  
+
     const handleClearStorageClick = () => {
       localStorage.clear();
       setProjects([...defaultFoods]);
     };
-  
+
 
     return (
       <div className="App">
@@ -155,47 +155,41 @@ const Project = ({ project }) => {
         <div>
           <div style={{ textAlign: "center", position: "relative" }}>
             <div className="heading">
-            <h1 className="logo" title="The home of recipe ideas">🥑 froogle</h1>
-
-            <p className='text' style={{ color: '#333', marginBottom: '20px',
-             fontSize: '20px',
-             marginTop: '-2.3%',
-             marginRight: '1%',         
-             }}>The home of recipe ideas</p>
-             </div>
+              <h1 className="logo" title="The home of recipe ideas">🥑 froogle</h1>
+              <p style={{ color: '#333', margin: 0 }}>The home of recipe ideas</p>
+            </div>
             <input
               className="search"
               style={{
-                marginBottom: "30px",
-                width: "40%",
+                marginBottom: "20px",
+                width: "26em",
                 height: 15,
                 backgroundColor: "#eee",
-                border: "1px solid #eee",
+                border: "2px solid #eee",
                 padding: "18px 20px",
-                borderTopLeftRadius: 30,
-                borderBottomLeftRadius: 30,
+                borderTopLeftRadius: 13,
+                borderBottomLeftRadius: 13,
                 fontSize: 16,
-                boxShadow: "rgba(0, 0, 0, 0.1) 0px 2px 2px",
               }}
               type="text"
-              
+
               placeholder="Enter some ingredients here..."
               value = {name}
               onChange={(event) => {
               setName(event.target.value);
-                
+
               }}
             />
               <button
-                style={{ ...btnStyle, 
-                  borderTopRightRadius: 30,
-                  borderBottomRightRadius: 30,
-                  padding: "16px 20px", 
-                  borderTopLeftRadius: 0, 
-                  width: '100px',
+                style={{
+                  ...btnStyle,
+                  borderTopRightRadius: 13,
+                  borderBottomRightRadius: 13,
+                  padding: "18px 20px",
+                  borderTopLeftRadius: 0,
                   borderBottomLeftRadius: 0,
+                  width: "100px",
                   backgroundColor: '#466d1d',
-                  boxShadow: "rgba(0, 0, 0, 0.1) 0px 2px 2px",
               }}
                 onClick={() => {
                   if (!name || !name.trim()) return;
@@ -205,8 +199,8 @@ const Project = ({ project }) => {
                   });
                   setProjects(_projects);
                   fetchRecipesAndUpdate();
-                  
-                  
+
+
                 }}
               >
                 Search
@@ -226,16 +220,16 @@ const Project = ({ project }) => {
             {projects.map(projectMapper)}
           </div>
           <div>
-            <br></br> 
+            <br></br>
             </div>
             <p>
             <ol>{parse(message)} </ol></p>
-         
-              
+
+
         </div>
       </div>
     );
   }
-  
-                            
+
+
 export default App;
