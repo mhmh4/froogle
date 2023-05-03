@@ -258,11 +258,13 @@ export default function App() {
           </div>
         </div>
       </div>
-      <div style={{ padding: "20px 20%" }}>
+      <div style={{ display: 'flex', justifyContent: "center" }}>
         <div
           style={{
+            marginTop: 20,
             display: "flex",
             minHeight: 70,
+            width: "35em",
             overflowX: "scroll",
             backgroundColor: "#eee",
             borderRadius: "10px",
@@ -270,11 +272,8 @@ export default function App() {
         >
           {projects.map(projectMapper)}
         </div>
-        <div>
-          <br></br>
-        </div>
         <p>
-          <ol>{parse(message)} </ol>
+          {parse(message)}
         </p>
       </div>
     </div>
