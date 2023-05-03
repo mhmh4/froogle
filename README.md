@@ -1,10 +1,8 @@
 # 🥑 froogle
 
 ## What it does
-- froogle is a website that helps users **cook better meals**.
-- It uses OpenAI API
-- Solve food waste
-- Input the ingredients = outputs the recipe
+
+froogle is a website that incorporates AI to suggest meals from given ingredients.
 
 ## Demo
 
@@ -62,7 +60,6 @@ Our website not only helps you cook better meals but also reduces food waste and
 
 ## Try it out
 
-[GitHub Repo](https://github.com/example/froogle)
 Download the files
 Make secret keys directory and make following files
 - key.txt
@@ -77,6 +74,14 @@ cd .\public\backend\
 flask run
 
 ```
+
+## Installation
+
+...
+
+## Usage
+
+...
 
 ## License
 
