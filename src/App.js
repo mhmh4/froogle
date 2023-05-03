@@ -208,7 +208,7 @@ const Project = ({ project }) => {
               </button>
             <div>
               <button className="button2" style={{...btnStyle, margin: "0 10px"}} onClick={handleProvideIngredientsClick} value={name}>
-                Provide Ingredients
+                Try Example
               </button>
               <button className="button2" style={{...btnStyle, margin: "0 10px"}} onClick={handleClearStorageClick}>
                 Clear History
