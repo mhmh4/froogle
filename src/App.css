@@ -20,6 +20,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .project {
   background-color: #fff;
+  min-width: 150px;
+  font-size: 14px;
 }
 
 .project:hover {
