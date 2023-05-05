@@ -3,34 +3,21 @@ from flask_cors import CORS
 import openai
 import requests
 
+import config
+
 app = Flask(__name__)
 cors = CORS(app)
 app.config["CORS_HEADERS"] = "Content-Type"
 
 
-def getkey():
-    with open("secrets/key.txt") as f:
-        return f.read()
-
-
-openai.api_key = getkey()
-
-
-def getGooglekey():
-    with open("secrets/google_key.txt") as f:
-        return f.read()
-
-
-def getGoogleCX():
-    with open("secrets/google_cx.txt") as f:
-        return f.read()
+openai.api_key = config.OPENAI_API_KEY
 
 
 def get_image_url(query):
     url = "https://www.googleapis.com/customsearch/v1"
     params = {
-        "key": getGooglekey(),
-        "cx": getGoogleCX(),
+        "key": config.GOOGLE_KEY,
+        "cx": config.GOOGLE_CX,
         "q": f"{query}",
         "searchType": "image",
     }
