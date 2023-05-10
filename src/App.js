@@ -273,10 +273,10 @@ export default function App() {
         >
           {projects.map(projectMapper)}
         </div>
-        <p>
-          {parse(message)}
-        </p>
       </div>
+      <p>
+        {parse(message)}
+      </p>
     </div>
   );
 }
