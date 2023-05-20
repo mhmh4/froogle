@@ -77,7 +77,11 @@ flask run
 
 ## Installation
 
-...
+Create a `.env` file within the `api` directory. In that file, add your OpenAI API key in a variable named `OPENAI_API_KEY`, like so:
+
+```
+OPENAI_API_KEY=your-api-key-here
+```
 
 ## Usage
 
