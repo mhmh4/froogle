@@ -1,15 +1,16 @@
+import os
+
+import dotenv
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import openai
-
-import config
 
 app = Flask(__name__)
 cors = CORS(app)
 app.config["CORS_HEADERS"] = "Content-Type"
 
-
-openai.api_key = config.OPENAI_API_KEY
+dotenv.load_dotenv()
+openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 
 def call_chatgpt_api(input):
