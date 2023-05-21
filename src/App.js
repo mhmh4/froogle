@@ -39,28 +39,6 @@ const projectStyle = {
   padding: "0 10px",
 };
 
-const hoverProjectStyle = {
-  ...projectStyle,
-};
-
-const Project = ({ project }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleHover = () => setIsHovered(!isHovered);
-
-  return (
-    <div
-      style={isHovered ? hoverProjectStyle : projectStyle}
-      onMouseEnter={handleHover}
-      onMouseLeave={handleHover}
-    >
-      <p style={{ fontWeight: "bold" }}>{project.name}</p>
-    </div>
-  );
-};
-
-const storageArray = [];
-
 async function fetchRecipes(input) {
   console.log("name=" + input);
   return await fetch(`http://localhost:5000/recipes?${input}`);
@@ -88,8 +66,6 @@ export default function App() {
   useEffect(() => {
     localStorage.setItem("name", name);
   }, [name]);
-
-  const [calories, setCalories] = useState("");
 
   const fetchRecipesAndUpdate = async () => {
     let response = await fetchRecipes(name);
