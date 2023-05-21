@@ -36,17 +36,19 @@ export default function App() {
     localStorage.setItem("projects", JSON.stringify(projects));
   }, [projects]);
 
-  let [name, setName] = useState(() => {
-    return localStorage.getItem("name") || "";
-  });
+  let [name, setName] = useState("");
+
+  function handleSearchClick() {
+    if (!name || !name.trim()) {
+      return;
+    }
+    setProjects((prevProjects) => [...prevProjects, {name}]);
+    fetchRecipesAndUpdate();
+  }
 
   const handleProvideIngredientsClick = () => {
     setName(getRandomItem(DEFAULTS));
   };
-
-  useEffect(() => {
-    localStorage.setItem("name", name);
-  }, [name]);
 
   const fetchRecipesAndUpdate = async () => {
     let response = await fetchRecipes(name);
@@ -98,7 +100,6 @@ export default function App() {
         </div>
         <input
           className="search"
-          type="text"
           placeholder="Enter some ingredients here..."
           value={name}
           onChange={(event) => {
@@ -107,15 +108,7 @@ export default function App() {
         />
         <button
           className="button2 search-button"
-          onClick={() => {
-            if (!name || !name.trim()) return;
-            let _projects = [...projects];
-            _projects.push({
-              name: name,
-            });
-            setProjects(_projects);
-            fetchRecipesAndUpdate();
-          }}
+          onClick={handleSearchClick}
         >
           Search
         </button>
