@@ -191,7 +191,7 @@ export default function App() {
         <div style={{ textAlign: "center", position: "relative" }}>
           <div className="heading">
             <h1 className="logo" title="The home of recipe ideas">
-              🥑 froogle
+              froogle
             </h1>
             <p style={{ color: "#333", margin: 0 }}>The home of recipe ideas</p>
           </div>
