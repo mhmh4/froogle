@@ -24,17 +24,8 @@ def call_openai_api(input):
     )
     recipe_names = completion.choices[0].message.content
     recipe_names = recipe_names.split("\n")
-
-    # If the user provided invalid or bad input, `recipe_names` should
-    # only contain zero or one element. We'll use this condition to
-    # determine whether an error message needs to be displayed to the
-    # user.
-    if len(recipe_names) in (0, 1):
-        return ["null"]
-
     for i in range(len(recipe_names)):
         recipe_names[i] = recipe_names[i][3:]
-
     return recipe_names
 
 
