@@ -7,19 +7,9 @@ import { createRoot } from "react-dom/client";
 import { BrowserRouter, RouterProvider, Route, Link } from "react-router-dom";
 
 import { DEFAULTS } from "./Defaults";
+import { getRandomItem } from "./RandomUtils";
 import "./Defaults";
 import "./App.css";
-
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
-function choice(options) {
-  let random_index = getRandomIntInclusive(0, options.length - 1);
-  return options[random_index];
-}
 
 const router = (
   <BrowserRouter>
@@ -109,7 +99,7 @@ export default function App() {
   });
 
   const handleProvideIngredientsClick = () => {
-    setName(choice(DEFAULTS));
+    setName(getRandomItem(DEFAULTS));
   };
 
   useEffect(() => {
