@@ -4,25 +4,11 @@ import { Mainapp } from "./pages/mainapp";
 import { Placeholder } from "./pages/placeholder";
 import { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
-import { BrowserRouter, RouterProvider, Route, Link } from "react-router-dom";
 
 import { DEFAULTS } from "./Defaults";
 import { getRandomItem } from "./RandomUtils";
 import "./Defaults";
 import "./App.css";
-
-const router = (
-  <BrowserRouter>
-    <div style={{ textAlign: "center" }}>
-      {/* <h1>froogle</h1> */}
-      {/* <Link style={{ color: '#eee' }} to="/about"> About Us</Link> */}
-      {/* &nbsp; */}
-      {/* <Link style={{ color: '#eee' }} to="/mainapp"> Mainapp</Link> */}
-      {/* &nbsp; */}
-      {/* <Link style={{ color: '#eee' }} to="/placeholder">Placeholder</Link> */}
-    </div>
-  </BrowserRouter>
-);
 
 const defaultFoods = [];
 
