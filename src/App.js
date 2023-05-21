@@ -5,8 +5,6 @@ import { getRandomItem } from "./RandomUtils";
 
 import "./App.css";
 
-const defaultFoods = [];
-
 const projectMapper = (project) => {
   return (
     <div
@@ -31,7 +29,7 @@ export default function App() {
 
   const [projects, setProjects] = useState(() => {
     const storedProjects = localStorage.getItem("projects");
-    return storedProjects ? JSON.parse(storedProjects) : [...defaultFoods];
+    return storedProjects ? JSON.parse(storedProjects) : [];
   });
 
   useEffect(() => {
@@ -79,7 +77,7 @@ export default function App() {
 
   const handleClearStorageClick = () => {
     localStorage.clear();
-    setProjects([...defaultFoods]);
+    setProjects([]);
   };
 
   return (
