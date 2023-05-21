@@ -1,10 +1,8 @@
-import logo from "./logo.svg";
-import { useState, useEffect } from "react";
-import { createRoot } from "react-dom/client";
+import { useEffect, useState } from "react";
 
 import { DEFAULTS } from "./Defaults";
 import { getRandomItem } from "./RandomUtils";
-import "./Defaults";
+
 import "./App.css";
 
 const defaultFoods = [];
