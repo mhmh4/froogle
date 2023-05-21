@@ -5,20 +5,6 @@ import { getRandomItem } from "./RandomUtils";
 
 import "./App.css";
 
-const projectMapper = (project) => {
-  return (
-    <div
-      className="project"
-      onClick={() => {
-        const searchInput = document.querySelector(".search");
-        searchInput.value = project.name;
-      }}
-    >
-      <p>{project.name}</p>
-    </div>
-  );
-};
-
 async function fetchRecipes(input) {
   return await fetch("http://localhost:5000/recipes?" + input);
 }
@@ -55,25 +41,48 @@ export default function App() {
     setMessage(await response.text());
   };
 
+  const projectMapper = (project) => {
+    return (
+      <div
+        className="project"
+        onClick={() => {
+          const searchInput = document.querySelector(".search");
+          searchInput.value = project.name;
+          setName(project.name);
+        }}
+      >
+        <p>{project.name}</p>
+      </div>
+    );
+  };
+
   function parse(data) {
-    console.log(data);
-    console.log(typeof data);
-    data = data.substring(2, data.length - 3);
-    let x = data.split(`","`);
-    console.log(x);
-    return x;
+    try {
+      const trimmedString = data.trim();
+      const jsonArray = JSON.parse(trimmedString);
+      return jsonArray;
+    } catch (error) {
+      console.error("Invalid input string format. Please provide a valid JSON array.");
+      return [];
+    }
   }
 
   function foo(input) {
     let x = [];
-    input.forEach((element) => {
+    let i = 1;
+    for (let element of input) {
       x.push(
         <>
-          <div>{element}</div>
+          <div>
+            <span>{i}</span>
+            &nbsp;
+            {element}
+          </div>
           <br />
         </>
       );
-    });
+      i++;
+      }
     return x;
   }
 
@@ -125,7 +134,8 @@ export default function App() {
           </button>
         </div>
         <div className="history">{projects.map(projectMapper)}</div>
-        <div>{foo(parse(message))}</div>
+        <div className="results">{foo(parse(message))}</div>
+        {/* <div className="results">{message}</div> */}
       </div>
     </div>
   );
