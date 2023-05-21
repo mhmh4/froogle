@@ -125,7 +125,31 @@ export default function App() {
 
   function parse(data) {
     console.log(data);
-    return data;
+    console.log(typeof(data));
+    data = data.substring(2, data.length - 3);
+    let x = data.split(`","`)
+    console.log(x);
+    return x;
+  }
+
+  function foo(input) {
+    let x = [];
+    input.forEach(element => {
+      x.push(
+        <>
+        <div>
+          {element}
+        </div>
+        <br />
+        </>
+      );
+    });
+    return x;
+    // let output = '';
+    // input.forEach(element => {
+    //   output += `<div>${element}</div>\n`;
+    // });
+    // return output;
   }
 
   const btnStyle = {
@@ -274,9 +298,9 @@ export default function App() {
           {projects.map(projectMapper)}
         </div>
       </div>
-      <p>
-        {parse(message)}
-      </p>
+      <div style={{ textAlign: "center" }}>
+        {foo(parse(message))}
+      </div>
     </div>
   );
 }
