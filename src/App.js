@@ -11,18 +11,15 @@ const defaultFoods = [];
 
 const projectMapper = (project) => {
   return (
-    <>
-      <br />
-      <div
-        className="project"
-        onClick={() => {
-          const searchInput = document.querySelector(".search");
-          searchInput.value = project.name;
-        }}
-      >
-        <p>{project.name}</p>
-      </div>
-    </>
+    <div
+      className="project"
+      onClick={() => {
+        const searchInput = document.querySelector(".search");
+        searchInput.value = project.name;
+      }}
+    >
+      <p>{project.name}</p>
+    </div>
   );
 };
 
@@ -83,18 +80,6 @@ export default function App() {
     return x;
   }
 
-  const btnStyle = {
-    fontSize: 16,
-    color: "white",
-    backgroundColor: "#013220",
-    borderRadius: "6px",
-    border: 0,
-    padding: 10,
-    margin: "0 10px",
-    cursor: "pointer",
-    width: 190,
-  };
-
   const handleClearStorageClick = () => {
     localStorage.clear();
     setProjects([...defaultFoods]);
@@ -103,43 +88,25 @@ export default function App() {
   return (
     <div className="App">
       <div
+        className="shape"
         style={{
-          height: "200px",
-          width: "200px",
-          rotate: "30deg",
-          zIndex: -1,
-          backgroundColor: "green",
-          opacity: 0.05,
-          position: "absolute",
           left: 0,
           top: -90,
         }}
       ></div>
       <div
+        className="shape"
         style={{
-          height: "200px",
-          width: "200px",
-          rotate: "30deg",
-          zIndex: -1,
-          backgroundColor: "green",
-          opacity: 0.05,
-          position: "absolute",
           right: -10,
           top: 100,
           borderRadius: "50%",
         }}
       ></div>
       <div
+        className="shape"
         style={{
-          height: "500px",
-          width: "500px",
-          rotate: "30deg",
-          zIndex: -1,
-          backgroundColor: "green",
-          opacity: 0.05,
-          position: "absolute",
-          left: 10,
-          top: 400,
+          left: 30,
+          top: 440,
         }}
       ></div>
       <div>

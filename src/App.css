@@ -67,3 +67,13 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #466d1d;
   margin: 0;
 }
+
+.shape {
+  height: 200px;
+  width: 200px;
+  rotate: 30deg;
+  z-index: -1;
+  background-color: green;
+  opacity: 0.05;
+  position: absolute;
+}
