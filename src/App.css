@@ -77,3 +77,27 @@ h1, h2, h3, h4, h5, h6 {
   opacity: 0.05;
   position: absolute;
 }
+
+input {
+  margin-bottom: 20px;
+  width: 26em;
+  height: 15px;
+  background-color: #eee;
+  border: 2px solid #eee;
+  padding: 18px 20px;
+  border-top-left-radius: 13px;
+  border-bottom-left-radius: 13px;
+  font-size: 16px;
+}
+
+.history {
+  margin: 20px auto;
+  width: 35em;
+  margin-top: 20;
+  display: flex;
+  min-height: 70px;
+  overflow-x: scroll;
+  background-color: #eee;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+}

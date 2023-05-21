@@ -58,21 +58,19 @@ export default function App() {
 
   function parse(data) {
     console.log(data);
-    console.log(typeof(data));
+    console.log(typeof data);
     data = data.substring(2, data.length - 3);
-    let x = data.split(`","`)
+    let x = data.split(`","`);
     console.log(x);
     return x;
   }
 
   function foo(input) {
     let x = [];
-    input.forEach(element => {
+    input.forEach((element) => {
       x.push(
         <>
-          <div>
-            {element}
-          </div>
+          <div>{element}</div>
           <br />
         </>
       );
@@ -87,105 +85,56 @@ export default function App() {
 
   return (
     <div className="App">
+      <div className="shape" style={{ left: 0, top: -90 }}></div>
       <div
         className="shape"
-        style={{
-          left: 0,
-          top: -90,
-        }}
+        style={{ right: -10, top: 100, borderRadius: "50%" }}
       ></div>
-      <div
-        className="shape"
-        style={{
-          right: -10,
-          top: 100,
-          borderRadius: "50%",
-        }}
-      ></div>
-      <div
-        className="shape"
-        style={{
-          left: 30,
-          top: 440,
-        }}
-      ></div>
-      <div>
-        <div style={{ textAlign: "center" }}>
-          <div className="heading">
-            <h1 className="logo" title="The home of recipe ideas">
-              froogle
-            </h1>
-            <p>The home of recipe ideas</p>
-          </div>
-          <input
-            className="search"
-            style={{
-              marginBottom: "20px",
-              width: "26em",
-              height: 15,
-              backgroundColor: "#eee",
-              border: "2px solid #eee",
-              padding: "18px 20px",
-              borderTopLeftRadius: 13,
-              borderBottomLeftRadius: 13,
-              fontSize: 16,
-            }}
-            type="text"
-            placeholder="Enter some ingredients here..."
-            value={name}
-            onChange={(event) => {
-              setName(event.target.value);
-            }}
-          />
-          <button
-            className="button2 search-button"
-            onClick={() => {
-              if (!name || !name.trim()) return;
-              let _projects = [...projects];
-              _projects.push({
-                name: name,
-              });
-              setProjects(_projects);
-              fetchRecipesAndUpdate();
-            }}
-          >
-            Search
-          </button>
-          <div>
-            <button
-              className="button2"
-              onClick={handleProvideIngredientsClick}
-              value={name}
-            >
-              Try Example
-            </button>
-            <button
-              className="button2"
-              onClick={handleClearStorageClick}
-            >
-              Clear History
-            </button>
-          </div>
+      <div className="shape" style={{ left: 30, top: 440 }}></div>
+      <div style={{ textAlign: "center" }}>
+        <div className="heading">
+          <h1 className="logo" title="The home of recipe ideas">
+            froogle
+          </h1>
+          <p>The home of recipe ideas</p>
         </div>
-      </div>
-      <div style={{ display: 'flex', justifyContent: "center" }}>
-        <div
-          style={{
-            marginTop: 20,
-            display: "flex",
-            minHeight: 70,
-            width: "35em",
-            overflowX: "scroll",
-            backgroundColor: "#eee",
-            borderRadius: "10px",
-            border: "1px solid #e0e0e0"
+        <input
+          className="search"
+          type="text"
+          placeholder="Enter some ingredients here..."
+          value={name}
+          onChange={(event) => {
+            setName(event.target.value);
+          }}
+        />
+        <button
+          className="button2 search-button"
+          onClick={() => {
+            if (!name || !name.trim()) return;
+            let _projects = [...projects];
+            _projects.push({
+              name: name,
+            });
+            setProjects(_projects);
+            fetchRecipesAndUpdate();
           }}
         >
-          {projects.map(projectMapper)}
+          Search
+        </button>
+        <div>
+          <button
+            className="button2"
+            onClick={handleProvideIngredientsClick}
+            value={name}
+          >
+            Try Example
+          </button>
+          <button className="button2" onClick={handleClearStorageClick}>
+            Clear History
+          </button>
         </div>
-      </div>
-      <div style={{ textAlign: "center" }}>
-        {foo(parse(message))}
+        <div className="history">{projects.map(projectMapper)}</div>
+        <div>{foo(parse(message))}</div>
       </div>
     </div>
   );
