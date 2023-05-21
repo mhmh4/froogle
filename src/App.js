@@ -22,12 +22,13 @@ const projectMapper = (project) => {
 };
 
 async function fetchRecipes(input) {
-  console.log("name=" + input);
-  return await fetch(`http://localhost:5000/recipes?${input}`);
+  return await fetch("http://localhost:5000/recipes?" + input);
 }
 
 export default function App() {
+
   const [message, setMessage] = useState("");
+
   const [projects, setProjects] = useState(() => {
     const storedProjects = localStorage.getItem("projects");
     return storedProjects ? JSON.parse(storedProjects) : [...defaultFoods];
@@ -84,6 +85,7 @@ export default function App() {
   return (
     <div className="App">
       <div className="shape" style={{ left: 0, top: -90 }}></div>
+      <div className="shape" style={{ right: 250, top: -170 }}></div>
       <div
         className="shape"
         style={{ right: -10, top: 100, borderRadius: "50%" }}
