@@ -9,13 +9,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .logo {
   margin: 0;
-  margin-top: 45px;
-  font-size: 70px;
+  margin-top: 90px;
+  /* font-size: 35px; */
 }
 
 .heading {
-  padding-bottom: 20px;
-  user-select: none;
+  /* padding-bottom: 20px; */
+  /* user-select: none; */
 }
 
 .project {
@@ -29,10 +29,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .search:hover {
-  border-color: #dedede !important;
+  border-color: #e2e2e2 !important;
 }
 
 .search-btn:hover,
 .button2:hover {
-  opacity: 0.88;
+  opacity: 0.85;
 }
