@@ -15,7 +15,6 @@ const projectMapper = (project) => {
       <br />
       <div
         className="project"
-        style={projectStyle}
         onClick={() => {
           const searchInput = document.querySelector(".search");
           searchInput.value = project.name;
@@ -25,18 +24,6 @@ const projectMapper = (project) => {
       </div>
     </>
   );
-};
-
-const projectStyle = {
-  border: "1px solid #cdcdcd",
-  minWidth: "200px !impotant",
-  margin: "5px 5px",
-  padding: "0 10px",
-  borderRadius: 12,
-  // transition: "border-color 0.2s ease-in-out"
-  textOverflow: "ellipsis",
-  cursor: "pointer",
-  padding: "0 10px",
 };
 
 async function fetchRecipes(input) {
@@ -86,19 +73,14 @@ export default function App() {
     input.forEach(element => {
       x.push(
         <>
-        <div>
-          {element}
-        </div>
-        <br />
+          <div>
+            {element}
+          </div>
+          <br />
         </>
       );
     });
     return x;
-    // let output = '';
-    // input.forEach(element => {
-    //   output += `<div>${element}</div>\n`;
-    // });
-    // return output;
   }
 
   const btnStyle = {
@@ -108,7 +90,7 @@ export default function App() {
     borderRadius: "6px",
     border: 0,
     padding: 10,
-    // margin: "0 10px",
+    margin: "0 10px",
     cursor: "pointer",
     width: 190,
   };
@@ -189,17 +171,7 @@ export default function App() {
             }}
           />
           <button
-            className="search-btn"
-            style={{
-              ...btnStyle,
-              borderTopRightRadius: 13,
-              borderBottomRightRadius: 13,
-              padding: "18px 20px",
-              borderTopLeftRadius: 0,
-              borderBottomLeftRadius: 0,
-              width: "100px",
-              backgroundColor: "#466d1d",
-            }}
+            className="button2 search-button"
             onClick={() => {
               if (!name || !name.trim()) return;
               let _projects = [...projects];
@@ -215,7 +187,6 @@ export default function App() {
           <div>
             <button
               className="button2"
-              style={{ ...btnStyle, margin: "0 10px" }}
               onClick={handleProvideIngredientsClick}
               value={name}
             >
@@ -223,7 +194,6 @@ export default function App() {
             </button>
             <button
               className="button2"
-              style={{ ...btnStyle, margin: "0 10px" }}
               onClick={handleClearStorageClick}
             >
               Clear History
