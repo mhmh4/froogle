@@ -1,7 +1,4 @@
 import logo from "./logo.svg";
-import { About } from "./pages/about.jsx";
-import { Mainapp } from "./pages/mainapp";
-import { Placeholder } from "./pages/placeholder";
 import { useState, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 
