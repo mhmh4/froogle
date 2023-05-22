@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .button2 {
-  font-size: 16px;
+  font-size: 14px;
   color: white;
   background-color: #013220;
   border-radius: 6px;
@@ -54,18 +54,19 @@ h1, h2, h3, h4, h5, h6 {
   padding: 10px;
   margin: 0 10px;
   cursor: pointer;
-  width: 190px;
+  width: 150px;
 }
 
 .search-button {
-  border-top-right-radius: 13px;
-  border-bottom-right-radius: 13px;
-  padding: 18px 20px;
+  border-top-right-radius: 27px;
+  border-bottom-right-radius: 27px;
+  padding: 15px 20px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   width: 100px;
   background-color: #466d1d;
   margin: 0;
+  font-size: 16px;
 }
 
 .shape {
@@ -74,26 +75,26 @@ h1, h2, h3, h4, h5, h6 {
   rotate: 30deg;
   z-index: -1;
   background-color: green;
-  opacity: 0.05;
+  opacity: 0.06;
   position: absolute;
 }
 
 input {
   margin-bottom: 20px;
   width: 26em;
-  height: 15px;
-  background-color: #eee;
+  height: 10px;
+  background-color: #f7f7f7;
   border: 2px solid #eee;
   padding: 18px 20px;
-  border-top-left-radius: 13px;
-  border-bottom-left-radius: 13px;
+  border-top-left-radius: 27px;
+  border-bottom-left-radius: 27px;
   font-size: 16px;
 }
 
 .history {
   margin: 20px auto;
   width: 35em;
-  margin-top: 20;
+  margin-top: 20px;
   display: flex;
   min-height: 70px;
   overflow-x: scroll;
