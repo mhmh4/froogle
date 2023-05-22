@@ -9,15 +9,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .logo {
   margin: 0;
-  margin-top: 80px;
+  margin-top: 70px;
 }
 
 .project {
   background-color: #fff;
-  min-width: 150px;
   font-size: 14px;
   border: 1px solid #cdcdcd;
-  min-width: 200px !important;
+  min-width: 175px;
   margin: 5px 5px;
   padding: 0 10px;
   border-radius: 12px;
@@ -65,6 +64,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .slogan {
+  margin: 15px 0;
   color: #666;
 }
 
@@ -123,10 +123,26 @@ input {
 }
 
 .results {
-  margin: 0 auto;
+  margin: 20px auto;
   width: 35em;
-  background-color: #f7f7f7;
+  background-color: #eee;
   border-radius: 10px;
-  padding: 2em 1em;
+  /* padding: 2em 1em; */
+  border: 1px solid #e0e0e0;
   margin-bottom: 50px;
+  /* text-align: center; */
+}
+
+.recipe {
+  background-color: #fff;
+  margin: 10px auto;
+  padding: 15px 0;
+  border-radius: 10px;
+  width: 100%;
+  border: 1px solid #cdcdcd;
+  width: 34em;
+}
+
+.recipe:hover {
+  background-color: #f3f3f3;
 }
