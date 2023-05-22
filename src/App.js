@@ -105,7 +105,7 @@ export default function App() {
           <h1 className="logo" title="The home of recipe ideas">
             froogle
           </h1>
-          <p>The home of recipe ideas</p>
+          <p class="slogan">The home of recipe ideas</p>
         </div>
         <input
           className="search"
@@ -133,9 +133,13 @@ export default function App() {
             Clear History
           </button>
         </div>
-        <div className="history">{projects.map(projectMapper)}</div>
+        <div className="history-wrapper">
+          <p>Search history</p>
+          <div className="history">
+            {projects.map(projectMapper)}
+          </div>
+        </div>
         <div className="results">{foo(parse(message))}</div>
-        {/* <div className="results">{message}</div> */}
       </div>
     </div>
   );
