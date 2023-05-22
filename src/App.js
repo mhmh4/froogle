@@ -72,17 +72,14 @@ export default function App() {
     let i = 1;
     for (let element of input) {
       x.push(
-        <>
-          <div>
-            <span>{i}</span>
-            &nbsp;
-            {element}
-          </div>
-          <br />
-        </>
+        <div className="recipe">
+          <span>{i}</span>
+          &nbsp;
+          {element}
+        </div>
       );
       i++;
-      }
+    }
     return x;
   }
 
