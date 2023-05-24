@@ -67,20 +67,19 @@ export default function App() {
     }
   }
 
-  function foo(input) {
-    let x = [];
-    let i = 1;
-    for (let element of input) {
-      x.push(
+  let foo = (input) => {
+    let output = [];
+    for (const [i, element] of input.entries()) {
+      output.push(
         <div className="recipe">
-          <span>{i}</span>
-          &nbsp;
-          {element}
+          <div class="rid">{i + 1}</div>
+          <div>
+            {element}
+          </div>
         </div>
       );
-      i++;
     }
-    return x;
+    return output;
   }
 
   const handleClearStorageClick = () => {
@@ -136,7 +135,10 @@ export default function App() {
             {projects.map(projectMapper)}
           </div>
         </div>
-        <div className="results">{foo(parse(message))}</div>
+        <div className="results">
+          <p>Results</p>
+          {foo(parse(message))}
+        </div>
       </div>
     </div>
   );
