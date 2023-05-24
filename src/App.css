@@ -31,7 +31,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .search:hover {
-  border-color: #ddd !important;
+  border-color: #e4e4e4 !important;
 }
 
 .search-btn:hover,
@@ -133,7 +133,19 @@ input {
   /* text-align: center; */
 }
 
+.results > p {
+  padding: 5px 0;
+  margin: 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  text-align: left;
+  padding-left: 10px;
+  color: #666;
+  user-select: none;
+}
+
 .recipe {
+  display: flex;
   background-color: #fff;
   margin: 10px auto;
   padding: 15px 0;
@@ -145,4 +157,8 @@ input {
 
 .recipe:hover {
   background-color: #f3f3f3;
+}
+
+.rid {
+  padding: 0 10px;
 }
