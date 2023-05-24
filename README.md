@@ -1,5 +1,7 @@
 # 🥑 froogle
 
+<img src="images/screenshot.png">
+
 ## What it does
 
 froogle is a website that incorporates AI to suggest meals from given ingredients.
