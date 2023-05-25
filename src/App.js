@@ -13,14 +13,14 @@ export default function App() {
 
   const [message, setMessage] = useState("");
 
-  const [projects, setProjects] = useState(() => {
-    const storedProjects = localStorage.getItem("projects");
-    return storedProjects ? JSON.parse(storedProjects) : [];
+  const [searchHistory, setSearchHistory] = useState(() => {
+    const searchHistory = localStorage.getItem("searchHistory");
+    return searchHistory ? JSON.parse(searchHistory) : [];
   });
 
   useEffect(() => {
-    localStorage.setItem("projects", JSON.stringify(projects));
-  }, [projects]);
+    localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+  }, [searchHistory]);
 
   let [name, setName] = useState("");
 
@@ -28,7 +28,7 @@ export default function App() {
     if (!name || !name.trim()) {
       return;
     }
-    setProjects((prevProjects) => [...prevProjects, {name}]);
+    setSearchHistory((prevSearchHistory) => [...prevSearchHistory, {name}]);
     fetchRecipesAndUpdate();
   }
 
@@ -84,7 +84,7 @@ export default function App() {
 
   const handleClearStorageClick = () => {
     localStorage.clear();
-    setProjects([]);
+    setSearchHistory([]);
   };
 
   return (
@@ -132,7 +132,7 @@ export default function App() {
         <div className="history-wrapper">
           <p>Search history</p>
           <div className="history">
-            {projects.map(projectMapper)}
+            {searchHistory.map(projectMapper)}
           </div>
         </div>
         <div className="results">
