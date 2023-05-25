@@ -81,13 +81,21 @@ npm install
 
 ## Usage
 
+To begin, have two terminals open that are both within the repository's root directory.
+
+In one terminal, navigate to the `api` directory (activate your virtual environment if you're using one), then run the following Flask command:
+
 ```
 flask run
 ```
 
+In the second terminal, simply run the npm `start` script.
+
 ```
 npm run start
 ```
+
+Lastly, open a web browser and navigate to `http://localhost:3000` to see the application.
 
 ## License
 
