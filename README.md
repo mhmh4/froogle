@@ -2,9 +2,9 @@
 
 <img src="images/screenshot.png">
 
-## What it does
+## About
 
-froogle is a website that incorporates AI to suggest meals from given ingredients.
+froogle is a web app that incorporates AI to suggest recipe ideas from given ingredients.
 
 ## Demo
 
@@ -60,24 +60,10 @@ Our website not only helps you cook better meals but also reduces food waste and
 [JSON-docs]: https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/JSON
 [Python-docs]: https://www.python.org/doc/
 
-## Try it out
-
-Download the files
-Make secret keys directory and make following files
-- key.txt
-- google_key.txt
-- google_cx.txt
-
-Download pre-reqs for node, run flask and run front ened
-```ss
-cd public/frontend/hawkhack-app/src
-npm run start
-cd .\public\backend\
-flask run
-
-```
 
 ## Installation
+
+https://openai.com/
 
 Create a `.env` file within the `api` directory. In that file, add your OpenAI API key in a variable named `OPENAI_API_KEY`, like so:
 
@@ -85,9 +71,23 @@ Create a `.env` file within the `api` directory. In that file, add your OpenAI A
 OPENAI_API_KEY=your-api-key-here
 ```
 
+```
+pip install -r requirements.txt
+```
+
+```
+npm install
+```
+
 ## Usage
 
-...
+```
+flask run
+```
+
+```
+npm run start
+```
 
 ## License
 
