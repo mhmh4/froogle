@@ -6,12 +6,6 @@
 
 froogle is a web app that incorporates AI to suggest recipe ideas from given ingredients.
 
-## Demo
-
-Check out our [demo video on YouTube](https://www.youtube.com/watch?v=a0XG3CcASoI).
-
-<!-- <img src="https://img.youtube.com/vi/a0XG3CcASoI/0.jpg"> -->
-
 ## How we built it
 
 User sends input to a site using React, the site generates prompt with OpenAI using Python, and pushes back as JSON and it gets formatted.
