@@ -82,6 +82,10 @@ export default function App() {
     return output;
   }
 
+  const handleChange = (e) => {
+    setName(e.target.value);
+  }
+
   const handleClearStorageClick = () => {
     localStorage.clear();
     setSearchHistory([]);
@@ -101,15 +105,13 @@ export default function App() {
           <h1 className="logo" title="The home of recipe ideas">
             froogle
           </h1>
-          <p class="slogan">The home of recipe ideas</p>
+          <p class="slogan">The home for recipe ideas</p>
         </div>
         <input
           className="search"
           placeholder="Enter some ingredients here..."
           value={name}
-          onChange={(event) => {
-            setName(event.target.value);
-          }}
+          onChange={handleChange}
         />
         <button
           className="button2 search-button"
