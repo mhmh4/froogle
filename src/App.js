@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import { Grid } from "react-loader-spinner";
+
 import { DEFAULTS } from "./Defaults";
 import { getRandomItem } from "./RandomUtils";
 
@@ -21,6 +23,8 @@ function defaultMessage() {
 
 export default function App() {
   const [message, setMessage] = useState(defaultMessage);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const [searchHistory, setSearchHistory] = useState(() => {
     const searchHistory = localStorage.getItem("searchHistory");
@@ -46,8 +50,10 @@ export default function App() {
   };
 
   const fetchRecipesAndUpdate = async () => {
+    setIsLoading(true);
     let response = await fetchRecipes(name);
     let text = await response.text();
+    setIsLoading(false);
     setMessage(foo(parse(text)));
   };
 
@@ -73,7 +79,7 @@ export default function App() {
       console.error(
         "Invalid input string format. Please provide a valid JSON array."
       );
-      return [data];
+      return [];
     }
   }
 
@@ -136,12 +142,23 @@ export default function App() {
       <div className="history-wrapper">
         <p>Search history</p>
         <div className="history">
-          { searchHistory.map(projectMapper) }
+          {searchHistory.map(projectMapper)}
         </div>
       </div>
       <div className="results">
         <p>Results</p>
-        {(message)}
+        { isLoading
+        ? <Grid
+        height="50"
+        width="50"
+        color="#777"
+        ariaLabel="grid-loading"
+        radius="12.5"
+        wrapperStyle={{}}
+        wrapperClass=""
+        visible={true}
+      />
+        : message }
       </div>
     </div>
   );
