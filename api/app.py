@@ -14,23 +14,38 @@ dotenv.load_dotenv()
 openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 
-def call_openai_api(input):
+def is_valid_data(data):
+    INVALID_STRINGS = frozenset(["sorry", "invalid", "valid", "provide", "ingredients"])
+    for d in data:
+        tokens = d.split()
+        for t in tokens:
+            if t in INVALID_STRINGS:
+                return False
+    return True
+
+
+def call_api(input):
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
             {"role": "user", "content": "I'll give ingredients, give me recipes, just list the recipe names as a numerical list, don't output anything else"},
-            {"role": "user", "content": f"Here are the ingredients: {input}. List recipes, just list the recipe names, nothing else"},
+            {"role": "user", "content": "Here are the ingredients: " + input},
         ]
     )
     recipe_names = completion.choices[0].message.content
     recipe_names = recipe_names.split("\n")
+
+    if not is_valid_data(recipe_names):
+        return []
+
     for i in range(len(recipe_names)):
         recipe_names[i] = recipe_names[i][3:]
+
     return recipe_names
 
 
-@app.route("/recipes", methods=["GET"])
+@app.get("/recipes")
 def recipes():
     query_string = str(flask.request.query_string)
-    response = call_openai_api(query_string)
+    response = call_api(query_string)
     return flask.jsonify(response)
