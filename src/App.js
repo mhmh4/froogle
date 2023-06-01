@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import { Grid } from "react-loader-spinner";
+import { PulseLoader } from "react-spinners";
 
 import { DEFAULTS } from "./Defaults";
 import { getRandomItem } from "./RandomUtils";
@@ -148,16 +148,7 @@ export default function App() {
       <div className="results">
         <p>Results</p>
         { isLoading
-        ? <Grid
-        height="50"
-        width="50"
-        color="#777"
-        ariaLabel="grid-loading"
-        radius="12.5"
-        wrapperStyle={{}}
-        wrapperClass=""
-        visible={true}
-      />
+        ? <PulseLoader color="#999" />
         : message }
       </div>
     </div>
