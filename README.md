@@ -2,32 +2,22 @@
 
 <img src="images/screenshot.png">
 
-## Introduction
+froogle is an application gives recipe ideas from ingredients you provide. The purpose of this project is to strictly give ideas for what to cook as opposed to giving actual recipes which one can easily find with a quick search.
 
-froogle is an application that uses AI to give recipe ideas from ingredients you provide.
+## Background
 
-<!-- ## Background -->
-
-<!-- ... -->
-
-## What we learned
-
-- ✨ Gained valuable experience in teamwork
-- ⚙ Learned how to use React, Chat OpenAI API, Python, and React Hooks
-- Learned how to link these technologies together to create a functional platform that provides personalized recipe recommendations
-- Honed skills in researching and selecting the right images for recipes
-- Overall, this project was an excellent learning opportunity that helped us grow as developers.
+We've first started this project at a hackathon. There wasn't any single required theme, but one recommendation was to make something based on the topic of food. Having that topic in mind and knowing that there is an API available to interact with ChatGPT, we eventually came up with the idea for this app.
 
 ## What could be next for froogle?
 
-If everyone lived like the United States, we would need 4.2 Earth to sustain the current consumption rate.
+...
 
-Our website not only helps you cook better meals but also reduces food waste and helps you better plan ahead. We want to add:
+<!-- If everyone lived like the United States, we would need 4.2 Earth to sustain the current consumption rate.
 
 - More visual experience like videos and photo tutorials using APIs
 - Ability to scan QR codes to save what you have locally so you can click to add different ingredients on a mix together
 - Notification feature to tell the user when food will expire after certain days of scanner
-- Maps to show closest shelters food banks to donate
+- Maps to show closest shelters food banks to donate -->
 
 ## Installation
 
@@ -67,4 +57,4 @@ Lastly, open a web browser and navigate to `http://localhost:3000` to see the ap
 
 ## License
 
-MIT
+...
