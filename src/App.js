@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { PulseLoader } from "react-spinners";
 
@@ -36,6 +36,7 @@ export default function App() {
   }, [searchHistory]);
 
   let [name, setName] = useState("");
+  const inputRef = useRef(null);
 
   function handleSearchClick() {
     if (!name || !name.trim()) {
@@ -96,6 +97,11 @@ export default function App() {
     return output;
   };
 
+  const clearInput = ()=> {
+    setName("");
+    inputRef.current.focus();
+  }
+
   const handleChange = (e) => {
     setName(e.target.value);
   };
@@ -112,19 +118,25 @@ export default function App() {
       <div className="shape" style={{ right: -10, top: 100, borderRadius: "50%" }}></div>
       <div className="shape" style={{ left: 30, top: 440 }}></div>
       {/* =========================================== */}
-      <h1 className="logo">
-        froogle
-      </h1>
-      <p class="slogan">The home for recipe ideas</p>
+        <h1 className="logo">
+          froogle
+        </h1>
+        <p class="slogan">The home for recipe ideas</p>
       {/* =========================================== */}
-      <input
-        placeholder="Enter some ingredients here..."
-        value={name}
-        onChange={handleChange}
-      />
-      <button className="search-button" onClick={handleSearchClick}>
-        Search
-      </button>
+      <div className="input-wrapper">
+        <input
+          placeholder="Enter some ingredients here..."
+          value={name}
+          onChange={handleChange}
+          ref={inputRef}
+        />
+        <span className="two">
+          <button onClick={clearInput}>X</button>
+        </span>
+        <span className="search-button" onClick={handleSearchClick}>
+          Search
+        </span>
+      </div>
       {/* =========================================== */}
       <div>
         <button

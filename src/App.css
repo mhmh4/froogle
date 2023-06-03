@@ -31,8 +31,12 @@ h1, h2, h3, h4, h5, h6 {
   color: #666;
 }
 
-input {
+.input-wrapper {
+  display: "flex";
   margin-bottom: 20px;
+}
+
+input {
   width: 26em;
   height: 10px;
   background-color: #f7f7f7;
@@ -45,6 +49,11 @@ input {
 
 input:hover {
   border-color: #e4e4e4 !important;
+}
+
+.two {
+  background-color: #f7f7f7;
+  padding: 16px 10px;
 }
 
 .search-button {
