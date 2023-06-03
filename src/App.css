@@ -1,6 +1,8 @@
 * {
   font-family: sans-serif;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 .App {
@@ -129,6 +131,10 @@ input:hover {
   cursor: pointer;
   padding: 0 10px;
   min-height: 61.33px;
+}
+
+.project p {
+  margin-top: 10px;
 }
 
 .project:hover {
