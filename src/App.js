@@ -21,6 +21,15 @@ function defaultMessage() {
   )
 }
 
+function errorMessage() {
+  return (
+    <div style={{
+      width: "90%"}}>
+      Error: Recipes cannot be generated for the provided ingredients. Please check your input and try again.
+    </div>
+  )
+}
+
 export default function App() {
   const [message, setMessage] = useState(defaultMessage);
 
@@ -54,8 +63,14 @@ export default function App() {
     setIsLoading(true);
     let response = await fetchRecipes(name);
     let text = await response.text();
+    // console.log(parse(text))
+    let results = parse(text);
     setIsLoading(false);
-    setMessage(foo(parse(text)));
+    if (results.length === 0) {
+      setMessage(errorMessage);
+    } else {
+      setMessage(foo(results));
+    }
   };
 
   const projectMapper = (project) => {
@@ -117,12 +132,12 @@ export default function App() {
       <div className="shape" style={{ right: 250, top: -170 }}></div>
       <div className="shape" style={{ right: -10, top: 100, borderRadius: "50%" }}></div>
       <div className="shape" style={{ left: 30, top: 440 }}></div>
-      {/* =========================================== */}
-        <h1 className="logo">
-          froogle
-        </h1>
-        <p class="slogan">The home for recipe ideas</p>
-      {/* =========================================== */}
+
+      <h1 className="logo">
+        froogle
+      </h1>
+      <p class="slogan">The home for recipe ideas</p>
+
       <div className="input-wrapper">
         <input
           placeholder="Enter some ingredients here..."
@@ -137,7 +152,7 @@ export default function App() {
           Search
         </span>
       </div>
-      {/* =========================================== */}
+
       <div>
         <button
           className="button2"
@@ -150,19 +165,17 @@ export default function App() {
           Clear History
         </button>
       </div>
-      {/* =========================================== */}
+
       <div className="history-wrapper">
         <p>Search history</p>
         <div className="history">
           {searchHistory.map(projectMapper)}
         </div>
       </div>
-      {/* =========================================== */}
+
       <div className="results">
         <p>Results</p>
-        { isLoading
-        ? <PulseLoader color="#999" />
-        : message }
+        { isLoading ? <PulseLoader color="#999" /> : message }
       </div>
     </div>
   );
