@@ -2,6 +2,8 @@
 
 <img src="images/screenshot.png">
 
+## Introduction
+
 froogle is an application gives recipe ideas from ingredients you provide. The purpose of this project is to strictly give ideas for what to cook as opposed to giving actual recipes which one can easily find with a quick search.
 
 ## Background
@@ -21,7 +23,15 @@ We've first started this project at a hackathon. There wasn't any single require
 
 ## Installation
 
-https://openai.com/
+Before even getting into the installation process, you'll first need an API key from [OpenAI](https://openai.com/) which you can get [using this link](https://platform.openai.com/account/api-keys). Note, you'd first need to create an account if you don't have one already.
+
+This project requires Python and Node.js, so make sure to have those installed as well.
+
+To begin, first, clone the repository.
+
+```
+git clone https://github.com/mhmh4/froogle.git
+```
 
 Create a `.env` file within the `api` directory. In that file, add your OpenAI API key in a variable named `OPENAI_API_KEY`, like so:
 
@@ -29,9 +39,13 @@ Create a `.env` file within the `api` directory. In that file, add your OpenAI A
 OPENAI_API_KEY=your-api-key-here
 ```
 
+Next, still in the `api` directory, install the required Python packages (use a virtual environment if you're feeling best practice-y).
+
 ```
 pip install -r requirements.txt
 ```
+
+Finally, back in the project's root directory, install the required npm packages.
 
 ```
 npm install
