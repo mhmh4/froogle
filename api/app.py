@@ -15,7 +15,7 @@ openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 
 def is_valid_data(data):
-    INVALID_STRINGS = frozenset(["sorry", "invalid", "valid", "provide", "ingredients"])
+    INVALID_STRINGS = frozenset(["sorry", "invalid", "valid", "provide", "ingredients", "model"])
     for d in data:
         tokens = d.split()
         for t in tokens:
