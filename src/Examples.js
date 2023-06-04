@@ -1,4 +1,4 @@
-export const DEFAULTS = [
+export const EXAMPLES = [
   "Apple, cheddar cheese, and rosemary",
   "Apple, cinnamon, and nutmeg",
   "Apple, cranberry, and walnut",
@@ -123,8 +123,6 @@ export const DEFAULTS = [
   "Pineapple, jalapeno, and cilantro",
   "Pistachio, honey, and goat cheese",
   "Pomegranate, orange, and mint",
-  "Pork, apple, and cinnamon",
-  "Pork, apple, and sage",
   "Potato, cheddar cheese, and bacon",
   "Potato, leek, and bacon",
   "Prosciutto, melon, and mint",

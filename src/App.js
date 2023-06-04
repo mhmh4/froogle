@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { PulseLoader } from "react-spinners";
 
-import { DEFAULTS } from "./Defaults";
+import { EXAMPLES } from "./Examples";
 import { getRandomItem } from "./RandomUtils";
 
 import "./App.css";
@@ -56,7 +56,7 @@ export default function App() {
   }
 
   const handleProvideIngredientsClick = () => {
-    setName(getRandomItem(DEFAULTS));
+    setName(getRandomItem(EXAMPLES));
   };
 
   const fetchRecipesAndUpdate = async () => {
