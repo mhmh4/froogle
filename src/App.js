@@ -7,16 +7,20 @@ import { getRandomItem } from "./RandomUtils";
 
 import "./App.css";
 
-async function fetchRecipes(input) {
-  return await fetch("http://localhost:5000/recipes?" + input);
-}
-
 function defaultMessage() {
   return (
     <div style={{
       width: "200px",
       margin: "10px auto", userSelect: "none", padding: "10px", color: "#bcbcbc", fontStyle: "italic", fontFamily: "monospace", fontSize: "15px" }}>
       froogle
+    </div>
+  )
+}
+
+function TimeoutMessage() {
+  return (
+    <div style={{ width: "90%" }}>
+      Oh no, something went wrong. We are unable to process your request at the moment. Please try again later.
     </div>
   )
 }
@@ -61,9 +65,16 @@ export default function App() {
 
   const fetchRecipesAndUpdate = async () => {
     setIsLoading(true);
-    let response = await fetchRecipes(searchInput);
+    const timeoutPromise = new Promise(() => {
+      setTimeout(() => {
+        setIsLoading(false);
+        setMessage(TimeoutMessage);
+        return;
+      }, 12000);
+    });
+    const fetchPromise = fetch("http://localhost:5000/recipes?" + searchInput);
+    let response = await Promise.race([fetchPromise, timeoutPromise]);
     let text = await response.text();
-    // console.log(parse(text))
     let results = parse(text);
     setIsLoading(false);
     if (results.length === 0) {
