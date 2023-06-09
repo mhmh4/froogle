@@ -31,6 +31,9 @@ function errorMessage() {
 }
 
 export default function App() {
+  const [searchInput, setSearchInput] = useState("");
+  const inputRef = useRef(null);
+
   const [message, setMessage] = useState(defaultMessage);
 
   const [isLoading, setIsLoading] = useState(false);
@@ -44,24 +47,21 @@ export default function App() {
     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
   }, [searchHistory]);
 
-  let [name, setName] = useState("");
-  const inputRef = useRef(null);
-
   function handleSearchClick() {
-    if (!name || !name.trim()) {
+    if (!searchInput || !searchInput.trim()) {
       return;
     }
-    setSearchHistory((prevSearchHistory) => [...prevSearchHistory, { name }]);
+    setSearchHistory((prevSearchHistory) => [...prevSearchHistory, { searchInput }]);
     fetchRecipesAndUpdate();
   }
 
   const handleProvideIngredientsClick = () => {
-    setName(getRandomItem(EXAMPLES));
+    setSearchInput(getRandomItem(EXAMPLES));
   };
 
   const fetchRecipesAndUpdate = async () => {
     setIsLoading(true);
-    let response = await fetchRecipes(name);
+    let response = await fetchRecipes(searchInput);
     let text = await response.text();
     // console.log(parse(text))
     let results = parse(text);
@@ -78,10 +78,10 @@ export default function App() {
       <div
         className="project"
         onClick={() => {
-          setName(project.name);
+          setSearchInput(project.searchInput);
         }}
       >
-        <p>{project.name}</p>
+        <p>{project.searchInput}</p>
       </div>
     );
   };
@@ -104,7 +104,7 @@ export default function App() {
     for (const [i, element] of input.entries()) {
       output.push(
         <div className="recipe">
-          <div class="rid">{i + 1}</div>
+          <div className="rid">{i + 1}</div>
           <div>{element}</div>
         </div>
       );
@@ -113,12 +113,12 @@ export default function App() {
   };
 
   const clearInput = ()=> {
-    setName("");
+    setSearchInput("");
     inputRef.current.focus();
   }
 
   const handleChange = (e) => {
-    setName(e.target.value);
+    setSearchInput(e.target.value);
   };
 
   const handleClearStorageClick = () => {
@@ -136,12 +136,12 @@ export default function App() {
       <h1 className="logo">
         froogle
       </h1>
-      <p class="slogan">The home for recipe ideas</p>
+      <p className="slogan">The home for recipe ideas</p>
 
       <div className="input-wrapper">
         <input
           placeholder="Enter some ingredients here..."
-          value={name}
+          value={searchInput}
           onChange={handleChange}
           ref={inputRef}
         />
@@ -154,11 +154,7 @@ export default function App() {
       </div>
 
       <div>
-        <button
-          className="button2"
-          onClick={handleProvideIngredientsClick}
-          value={name}
-        >
+        <button className="button2" onClick={handleProvideIngredientsClick}>
           Try Example
         </button>
         <button className="button2" onClick={handleClearStorageClick}>
