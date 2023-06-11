@@ -29,13 +29,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .slogan {
-  margin: 15px 0;
+  margin-top: 8px;
+  margin-bottom: 20px;
   color: #666;
 }
 
 .input-wrapper {
   display: "flex";
   margin-bottom: 20px;
+  padding-bottom: 2px;
 }
 
 input {
@@ -49,8 +51,10 @@ input {
   font-size: 16px;
 }
 
-input:hover {
-  border-color: #e4e4e4 !important;
+input:hover,
+input:focus {
+  outline: none;
+  border-color: lightblue;
 }
 
 .two {
@@ -62,7 +66,7 @@ input:hover {
   border-top-right-radius: 27px;
   border-bottom-right-radius: 27px;
   color: #fff;
-  border: 0;
+  /* border: 0; */
   padding: 15px 20px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -73,15 +77,20 @@ input:hover {
   cursor: pointer;
 }
 
+.search-button:focus {
+  outline: 2px solid lightblue;
+}
 
 .button2 {
+  outline: none;
   font-size: 14px;
   color: white;
   background-color: #013220;
   border-radius: 6px;
   border: 0;
+  /* border-color: #013220; */
   padding: 10px;
-  margin: 0 10px;
+  margin: 5px 10px;
   cursor: pointer;
   width: 175px;
 }
@@ -89,6 +98,10 @@ input:hover {
 .search-button:hover,
 .button2:hover {
   opacity: 0.85;
+}
+
+.button2:focus {
+  outline: 4px solid lightblue;
 }
 
 .history-wrapper {
