@@ -64,9 +64,10 @@ export default function App() {
   };
 
   const fetchRecipesAndUpdate = async () => {
+    let timeoutId;
     setIsLoading(true);
     const timeoutPromise = new Promise(() => {
-      setTimeout(() => {
+      timeoutId = setTimeout(() => {
         setIsLoading(false);
         setMessage(TimeoutMessage);
         return;
@@ -74,8 +75,9 @@ export default function App() {
     });
     const fetchPromise = fetch("http://localhost:5000/recipes?" + searchInput);
     let response = await Promise.race([fetchPromise, timeoutPromise]);
+    clearTimeout(timeoutId);
     let text = await response.text();
-    let results = parse(text);
+    let results = JSON.parse(text);
     setIsLoading(false);
     if (results.length === 0) {
       setMessage(errorMessage);
@@ -96,19 +98,6 @@ export default function App() {
       </div>
     );
   };
-
-  function parse(data) {
-    try {
-      const trimmedString = data.trim();
-      const jsonArray = JSON.parse(trimmedString);
-      return jsonArray;
-    } catch (error) {
-      console.error(
-        "Invalid input string format. Please provide a valid JSON array."
-      );
-      return [];
-    }
-  }
 
   let foo = (input) => {
     let output = [];
@@ -159,7 +148,7 @@ export default function App() {
         <span className="two">
           <button onClick={clearInput}>X</button>
         </span>
-        <span className="search-button" onClick={handleSearchClick}>
+        <span tabIndex={0} className="search-button" onClick={handleSearchClick}>
           Search
         </span>
       </div>
