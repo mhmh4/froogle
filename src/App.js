@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { PulseLoader } from "react-spinners";
 
+import { Error } from "./Error";
 import { EXAMPLES } from "./Examples";
 import { getRandomItem } from "./RandomUtils";
 
@@ -10,23 +11,6 @@ import "./App.css";
 function Watermark() {
   return (
     <div className="Watermark">froogle</div>
-  )
-}
-
-function TimeoutMessage() {
-  return (
-    <div style={{ width: "90%" }}>
-      Oh no, something went wrong. We are unable to process your request at the moment. Please try again later.
-    </div>
-  )
-}
-
-function errorMessage() {
-  return (
-    <div style={{
-      width: "90%"}}>
-      Error: Recipes cannot be generated for the provided ingredients. Please check your input and try again.
-    </div>
   )
 }
 
@@ -65,7 +49,7 @@ export default function App() {
     const timeoutPromise = new Promise(() => {
       timeoutId = setTimeout(() => {
         setIsLoading(false);
-        setMessage(TimeoutMessage);
+        setMessage(<Error isTimeout={true} />);
         return;
       }, 12000);
     });
@@ -76,7 +60,7 @@ export default function App() {
     let results = JSON.parse(text);
     setIsLoading(false);
     if (results.length === 0) {
-      setMessage(errorMessage);
+      setMessage(<Error />);
     } else {
       setMessage(foo(results));
     }
