@@ -119,6 +119,9 @@ export default function App() {
       <p className="slogan">The home for recipe ideas</p>
 
       <div className="input-wrapper">
+        <span className="one">
+          O_
+        </span>
         <input
           placeholder="Enter some ingredients here..."
           value={searchInput}
