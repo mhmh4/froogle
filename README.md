@@ -68,7 +68,3 @@ npm run start
 ```
 
 Lastly, open a web browser and navigate to `http://localhost:3000` to see the application.
-
-## License
-
-...
