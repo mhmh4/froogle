@@ -185,6 +185,17 @@ input:focus {
   width: 34em;
 }
 
+.Watermark {
+  width: 200px;
+  margin: 10px auto;
+  user-select: none;
+  padding: 10px;
+  color: #bcbcbc;
+  font-style: italic;
+  font-family: monospace;
+  font-size: 15px;
+}
+
 .rid {
   padding: 0 10px;
 }

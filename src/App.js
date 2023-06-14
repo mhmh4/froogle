@@ -7,13 +7,9 @@ import { getRandomItem } from "./RandomUtils";
 
 import "./App.css";
 
-function defaultMessage() {
+function Watermark() {
   return (
-    <div style={{
-      width: "200px",
-      margin: "10px auto", userSelect: "none", padding: "10px", color: "#bcbcbc", fontStyle: "italic", fontFamily: "monospace", fontSize: "15px" }}>
-      froogle
-    </div>
+    <div className="Watermark">froogle</div>
   )
 }
 
@@ -38,7 +34,7 @@ export default function App() {
   const [searchInput, setSearchInput] = useState("");
   const inputRef = useRef(null);
 
-  const [message, setMessage] = useState(defaultMessage);
+  const [message, setMessage] = useState(<Watermark />);
 
   const [isLoading, setIsLoading] = useState(false);
 
