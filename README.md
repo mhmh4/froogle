@@ -10,17 +10,6 @@ froogle is an application gives recipe ideas from ingredients you provide. The p
 
 We've first started this project at a hackathon. There wasn't any single required theme, but one recommendation was to make something based on the topic of food. Having that topic in mind and knowing that there is an API available to interact with ChatGPT, we eventually came up with the idea for this app.
 
-## What could be next for froogle?
-
-...
-
-<!-- If everyone lived like the United States, we would need 4.2 Earth to sustain the current consumption rate.
-
-- More visual experience like videos and photo tutorials using APIs
-- Ability to scan QR codes to save what you have locally so you can click to add different ingredients on a mix together
-- Notification feature to tell the user when food will expire after certain days of scanner
-- Maps to show closest shelters food banks to donate -->
-
 ## Installation
 
 Before even getting into the installation process, you'll first need an API key from [OpenAI](https://openai.com/) which you can get [using this link](https://platform.openai.com/account/api-keys). Note, you'd first need to create an account if you don't have one already.
@@ -68,3 +57,11 @@ npm run start
 ```
 
 Lastly, open a web browser and navigate to `http://localhost:3000` to see the application.
+
+## What could be next for froogle?
+
+Here are just some ideas:
+
+- Improve the UX by adding photos or videos.
+- Create our own API of the application.
+- Add a new, different feature that's still related to the theme.
