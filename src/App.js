@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from "react";
 
 import { HiMagnifyingGlass, HiXMark } from "react-icons/hi2";
 import { PulseLoader } from "react-spinners";
+import random from "random";
 
 import { Error } from "./Error";
 import { EXAMPLES } from "./Examples";
-import { getRandomItem } from "./RandomUtils";
 
 import "./App.css";
 
@@ -41,7 +41,7 @@ export default function App() {
   }
 
   const handleProvideIngredientsClick = () => {
-    setSearchInput(getRandomItem(EXAMPLES));
+    setSearchInput(random.choice(EXAMPLES));
   };
 
   const fetchRecipesAndUpdate = async () => {
