@@ -40,21 +40,29 @@ h1, h2, h3, h4, h5, h6 {
   padding-bottom: 2px;
 }
 
+.one {
+  background-color: #f7f7f7;
+  padding: 16px 10px;
+  border-top-left-radius: 27px;
+  border-bottom-left-radius: 27px;
+}
+
 input {
   width: 26em;
   height: 10px;
   background-color: #f7f7f7;
-  border: 2px solid #eee;
-  padding: 18px 20px;
-  border-top-left-radius: 27px;
-  border-bottom-left-radius: 27px;
+  border: 0;
+  /* border: 2px solid #eee; */
+  padding: 20px 5px;
+  /* border-top-left-radius: 27px; */
+  /* border-bottom-left-radius: 27px; */
   font-size: 16px;
 }
 
 input:hover,
 input:focus {
   outline: none;
-  border-color: lightblue;
+  /* border: 1px solid lightblue; */
 }
 
 .two {
@@ -67,7 +75,7 @@ input:focus {
   border-bottom-right-radius: 27px;
   color: #fff;
   /* border: 0; */
-  padding: 15px 20px;
+  padding: 16px 20px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   width: 100px;
