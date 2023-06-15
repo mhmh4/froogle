@@ -136,30 +136,30 @@ input:focus {
 }
 
 .history {
-  width: 35em;
-  display: flex;
-  min-height: 70px;
-  overflow-x: scroll;
+  /* width: 35em; */
+  /* display: flex; */
+  /* height: 30px; */
+  overflow-y: scroll;
   background-color: #eee;
-  min-height: 89.32px;
+  height: 90px;
 }
 
 .project {
   background-color: #fff;
   font-size: 14px;
   border: 1px solid #cdcdcd;
-  min-width: 175px;
-  margin: 5px 5px;
-  padding: 0 10px;
-  border-radius: 12px;
+  /* min-width: 175px; */
+  margin: 2px 10px;
+  /* padding: 0 10px; */
+  border-radius: 5px;
   text-overflow: ellipsis;
   cursor: pointer;
-  padding: 0 10px;
-  min-height: 61.33px;
+  padding: 5px 0;
+  /* min-height: 61.33px; */
 }
 
 .project p {
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 .project:hover {
