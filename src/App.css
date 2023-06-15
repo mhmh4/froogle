@@ -1,16 +1,12 @@
 * {
   font-family: sans-serif;
-  overflow-x: hidden;
   margin: 0;
+  overflow-x: hidden;
   padding: 0;
 }
 
 .App {
   text-align: center;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
 }
 
 .shape {
@@ -24,14 +20,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo {
+  font-weight: normal;
   margin: 0;
   margin-top: 70px;
 }
 
 .slogan {
+  color: #666;
   margin-top: 8px;
   margin-bottom: 20px;
-  color: #666;
 }
 
 .input-wrapper {
@@ -78,19 +75,17 @@ input:focus {
   border-top-right-radius: 27px;
   border-bottom-right-radius: 27px;
   color: #fff;
-  /* border: 0; */
+  border: 0;
   padding: 16px 15px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
   width: 100px;
   background-color: #466d1d;
-  margin: 0;
+  /* margin-top: 10px; */
   font-size: 16px;
   cursor: pointer;
 }
 
 .search-button:focus {
-  outline: 2px solid lightblue;
+  outline: 3px solid lightblue;
 }
 
 .button2 {
@@ -145,6 +140,7 @@ input:focus {
 }
 
 .project {
+  text-align: left;
   background-color: #fff;
   font-size: 14px;
   border: 1px solid #cdcdcd;
@@ -159,7 +155,7 @@ input:focus {
 }
 
 .project p {
-  /* margin-top: 10px; */
+  padding-left: 10px;
 }
 
 .project:hover {
