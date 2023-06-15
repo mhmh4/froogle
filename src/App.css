@@ -49,14 +49,18 @@ h1, h2, h3, h4, h5, h6 {
 
 input {
   width: 26em;
-  height: 10px;
+  /* height: 10px; */
   background-color: #f7f7f7;
   border: 0;
   /* border: 2px solid #eee; */
-  padding: 20px 5px;
+  padding: 15.5px 5px;
   /* border-top-left-radius: 27px; */
   /* border-bottom-left-radius: 27px; */
   font-size: 16px;
+}
+
+input::placeholder {
+  color: #777;
 }
 
 input:hover,

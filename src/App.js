@@ -10,9 +10,7 @@ import { EXAMPLES } from "./Examples";
 import "./App.css";
 
 function Watermark() {
-  return (
-    <div className="Watermark">froogle</div>
-  )
+  return <div className="Watermark">froogle</div>
 }
 
 export default function App() {
@@ -121,16 +119,25 @@ export default function App() {
 
       <div className="input-wrapper">
         <span className="one">
-          <HiMagnifyingGlass style={{ fontSize: "20px", zIndex: 0, top: 4.5, left: 3, position: "relative"  }} />
+          <HiMagnifyingGlass style={{ fontSize: "20px", zIndex: 0, top: 4.5, left: 5, position: "relative", color: "#aaa"  }} />
         </span>
         <input
           placeholder="Enter some ingredients here..."
           value={searchInput}
           onChange={handleChange}
           ref={inputRef}
+          autoFocus
         />
         <span className="two">
-          <button onClick={clearInput} style={{ position: "relative", top: 4.5, padding: "0 7.5px" }}>
+          <button
+            onClick={clearInput}
+            style={{
+              position: "relative",
+              top: 4.5,
+              padding: "0 7.5px",
+              cursor: "pointer",
+              visibility: (searchInput.length == 0 ? "hidden" : "unset")
+          }}>
             <HiXMark style={{ fontSize: "22px", position: "relative", top: 1.5 }} />
           </button>
         </span>
