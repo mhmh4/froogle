@@ -130,14 +130,12 @@ export default function App() {
         />
         <span className="two">
           <button
+            className="clear-input-button"
             onClick={clearInput}
             style={{
-              position: "relative",
-              top: 4.5,
-              padding: "0 7.5px",
-              cursor: "pointer",
               visibility: (searchInput.length == 0 ? "hidden" : "unset")
-          }}>
+            }}
+          >
             <HiXMark style={{ fontSize: "22px", position: "relative", top: 1.5 }} />
           </button>
         </span>
@@ -164,7 +162,9 @@ export default function App() {
 
       <div className="results">
         <p>Results</p>
-        { isLoading ? <PulseLoader color="#999" /> : message }
+        <div class="results-list">
+          { isLoading ? <PulseLoader color="#999" /> : message }
+        </div>
       </div>
     </div>
   );
