@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
+import { HiMagnifyingGlass, HiXMark } from "react-icons/hi2";
 import { PulseLoader } from "react-spinners";
 
 import { Error } from "./Error";
@@ -120,7 +121,7 @@ export default function App() {
 
       <div className="input-wrapper">
         <span className="one">
-          O_
+          <HiMagnifyingGlass style={{ fontSize: "20px", zIndex: 0, top: 4.5, left: 3, position: "relative"  }} />
         </span>
         <input
           placeholder="Enter some ingredients here..."
@@ -129,7 +130,9 @@ export default function App() {
           ref={inputRef}
         />
         <span className="two">
-          <button onClick={clearInput}>X</button>
+          <button onClick={clearInput} style={{ position: "relative", top: 4.5, padding: "0 7.5px" }}>
+            <HiXMark style={{ fontSize: "22px", position: "relative", top: 1.5 }} />
+          </button>
         </span>
         <span tabIndex={0} className="search-button" onClick={handleSearchClick}>
           Search
