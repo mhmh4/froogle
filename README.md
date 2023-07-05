@@ -1,4 +1,4 @@
-# 🥑 froogle
+# froogle
 
 <img src="images/screenshot.png">
 
@@ -50,13 +50,13 @@ In one terminal, navigate to the `api` directory (activate your virtual environm
 flask run
 ```
 
-In the other terminal, simply run the npm `start` script.
+In the other terminal, simply run the npm `dev` script.
 
 ```
-npm run start
+npm run dev
 ```
 
-Lastly, open a web browser and navigate to `http://localhost:3000` to see the application.
+Lastly, open a web browser and navigate to `http://localhost:5173` to see the application.
 
 ## What could be next for froogle?
 
