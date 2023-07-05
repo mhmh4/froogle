@@ -3,5 +3,5 @@ export function Error({ isTimeout = false }) {
     ? "Error: We're unable to process your request at the moment. Please try again later."
     : "Error: Recipes cannot be generated for the provided ingredients. Please check your input and try again.";
 
-  return <div className="error" style={{ width: "90%" }}>{errorMessage}</div>;
+  return <div className="error">{errorMessage}</div>;
 }
