@@ -9,15 +9,11 @@ import { EXAMPLES } from "./Examples";
 
 import "./App.css";
 
-function Watermark() {
-  return <div className="Watermark">froogle</div>
-}
-
 export default function App() {
   const [searchInput, setSearchInput] = useState("");
   const inputRef = useRef(null);
 
-  const [message, setMessage] = useState(<Watermark />);
+  const [message, setMessage] = useState();
 
   const [isLoading, setIsLoading] = useState(false);
 
