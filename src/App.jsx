@@ -4,10 +4,12 @@ import { HiMagnifyingGlass, HiXMark } from "react-icons/hi2";
 import { PulseLoader } from "react-spinners";
 import random from "random";
 
-import { Error } from "./Error";
 import { EXAMPLES } from "./Examples";
-
 import "./App.css";
+
+function Error({ message }) {
+  return <div className="error">{"Error: " + message}</div>;
+}
 
 export default function App() {
   const [searchInput, setSearchInput] = useState("");
@@ -30,7 +32,10 @@ export default function App() {
     if (!searchInput || !searchInput.trim()) {
       return;
     }
-    setSearchHistory((prevSearchHistory) => [...prevSearchHistory, { searchInput }]);
+    setSearchHistory((prevSearchHistory) => [
+      ...prevSearchHistory,
+      { searchInput },
+    ]);
     fetchRecipesAndUpdate();
   }
 
@@ -44,7 +49,9 @@ export default function App() {
     const timeoutPromise = new Promise(() => {
       timeoutId = setTimeout(() => {
         setIsLoading(false);
-        setMessage(<Error isTimeout={true} />);
+        setMessage(
+          <Error message="We're unable to process your request at the moment. Please try again later."></Error>,
+        );
         return;
       }, 12000);
     });
@@ -55,7 +62,9 @@ export default function App() {
     let results = JSON.parse(text);
     setIsLoading(false);
     if (results.length === 0) {
-      setMessage(<Error />);
+      setMessage(
+        <Error message="Recipes cannot be generated for the provided ingredients. Please check your input and try again."></Error>,
+      );
     } else {
       setMessage(foo(results));
     }
@@ -81,16 +90,16 @@ export default function App() {
         <div className="recipe">
           <div className="rid">{i + 1}</div>
           <div>{element}</div>
-        </div>
+        </div>,
       );
     }
     return output;
   };
 
-  const clearInput = ()=> {
+  const clearInput = () => {
     setSearchInput("");
     inputRef.current.focus();
-  }
+  };
 
   const handleChange = (e) => {
     setSearchInput(e.target.value);
@@ -105,17 +114,27 @@ export default function App() {
     <div className="App">
       <div className="shape" style={{ left: 0, top: -90 }}></div>
       <div className="shape" style={{ right: 250, top: -170 }}></div>
-      <div className="shape" style={{ right: -10, top: 100, borderRadius: "50%" }}></div>
+      <div
+        className="shape"
+        style={{ right: -10, top: 100, borderRadius: "50%" }}
+      ></div>
       <div className="shape" style={{ left: 30, top: 440 }}></div>
 
-      <h1 className="logo">
-        froogle
-      </h1>
+      <h1 className="logo">froogle</h1>
       <p className="slogan">The home for recipe ideas</p>
 
       <div className="input-wrapper">
         <span className="one">
-          <HiMagnifyingGlass style={{ fontSize: "20px", zIndex: 0, top: 4.5, left: 5, position: "relative", color: "#aaa"  }} />
+          <HiMagnifyingGlass
+            style={{
+              fontSize: "20px",
+              zIndex: 0,
+              top: 4.5,
+              left: 5,
+              position: "relative",
+              color: "#aaa",
+            }}
+          />
         </span>
         <input
           placeholder="Enter some ingredients here..."
@@ -129,13 +148,19 @@ export default function App() {
             className="clear-input-button"
             onClick={clearInput}
             style={{
-              visibility: (searchInput.length == 0 ? "hidden" : "unset")
+              visibility: searchInput.length == 0 ? "hidden" : "unset",
             }}
           >
-            <HiXMark style={{ fontSize: "22px", position: "relative", top: 1.5 }} />
+            <HiXMark
+              style={{ fontSize: "22px", position: "relative", top: 1.5 }}
+            />
           </button>
         </span>
-        <span tabIndex={0} className="search-button" onClick={handleSearchClick}>
+        <span
+          tabIndex={0}
+          className="search-button"
+          onClick={handleSearchClick}
+        >
           Search
         </span>
       </div>
@@ -151,15 +176,13 @@ export default function App() {
 
       <div className="history-wrapper">
         <p>Search history</p>
-        <div className="history">
-          {searchHistory.map(projectMapper)}
-        </div>
+        <div className="history">{searchHistory.map(projectMapper)}</div>
       </div>
 
       <div className="results">
         <p>Results</p>
         <div class="results-list">
-          { isLoading ? <PulseLoader color="#999" /> : message }
+          {isLoading ? <PulseLoader color="#999" /> : message}
         </div>
       </div>
     </div>
