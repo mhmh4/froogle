@@ -5,6 +5,7 @@ import { PulseLoader } from "react-spinners";
 import random from "random";
 
 import { EXAMPLES } from "./Examples";
+
 import "./App.css";
 
 function Error({ message }) {
@@ -32,10 +33,6 @@ export default function App() {
     if (!searchInput || !searchInput.trim()) {
       return;
     }
-    setSearchHistory((prevSearchHistory) => [
-      ...prevSearchHistory,
-      { searchInput },
-    ]);
     fetchRecipesAndUpdate();
   }
 
@@ -66,6 +63,10 @@ export default function App() {
         <Error message="Recipes cannot be generated for the provided ingredients. Please check your input and try again."></Error>,
       );
     } else {
+      setSearchHistory((prevSearchHistory) => [
+        ...prevSearchHistory,
+        { searchInput },
+      ]);
       setMessage(foo(results));
     }
   };
@@ -182,7 +183,7 @@ export default function App() {
       <div className="results">
         <p>Results</p>
         <div class="results-list">
-          {isLoading ? <PulseLoader color="#999" /> : message}
+          {isLoading ? <PulseLoader color="#bbb" /> : message}
         </div>
       </div>
     </div>
