@@ -30,13 +30,13 @@ export default function App() {
   }, [searchHistory]);
 
   function handleSearchClick() {
-    if (!searchInput || !searchInput.trim()) {
-      return;
-    }
+    const isWhitespace = !searchInput.trim()
+    if (isWhitespace) return;
+
     fetchRecipesAndUpdate();
   }
 
-  const handleProvideIngredientsClick = () => {
+  const handleTryExampleClick = () => {
     setSearchInput(random.choice(EXAMPLES));
   };
 
@@ -47,7 +47,7 @@ export default function App() {
       timeoutId = setTimeout(() => {
         setIsLoading(false);
         setMessage(
-          <Error message="We're unable to process your request at the moment. Please try again later."></Error>,
+          <Error message="We're unable to process your request at the moment. Please try again later."></Error>
         );
         return;
       }, 12000);
@@ -60,7 +60,7 @@ export default function App() {
     setIsLoading(false);
     if (results.length === 0) {
       setMessage(
-        <Error message="Recipes cannot be generated for the provided ingredients. Please check your input and try again."></Error>,
+        <Error message="Recipes cannot be generated for the provided ingredients. Please check your input and try again."></Error>
       );
     } else {
       setSearchHistory((prevSearchHistory) => [
@@ -167,7 +167,7 @@ export default function App() {
       </div>
 
       <div>
-        <button className="button2" onClick={handleProvideIngredientsClick}>
+        <button className="button2" onClick={handleTryExampleClick}>
           Try Example
         </button>
         <button className="button2" onClick={handleClearStorageClick}>
@@ -183,7 +183,7 @@ export default function App() {
       <div className="results">
         <p>Results</p>
         <div class="results-list">
-          {isLoading ? <PulseLoader color="#bbb" /> : message}
+          {isLoading ? <PulseLoader className="loader" color="#bbb" /> : message}
         </div>
       </div>
     </div>
