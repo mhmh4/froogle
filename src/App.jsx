@@ -25,8 +25,17 @@ export default function App() {
     return searchHistory ? JSON.parse(searchHistory) : [];
   });
 
+  const historyRef = useRef(null);
+
+  const scrollToBottom = () => {
+    if (historyRef.current) {
+      historyRef.current.scrollTop = historyRef.current.scrollHeight;
+    }
+  };
+
   useEffect(() => {
     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+    scrollToBottom();
   }, [searchHistory]);
 
   function handleSearchClick() {
@@ -177,7 +186,7 @@ export default function App() {
 
       <div className="history-wrapper">
         <p>Search history</p>
-        <div className="history">{searchHistory.map(projectMapper)}</div>
+        <div ref={historyRef} className="history">{searchHistory.map(projectMapper)}</div>
       </div>
 
       <div className="results">

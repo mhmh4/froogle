@@ -135,6 +135,7 @@ input:focus {
 
 .history {
   overflow-y: scroll;
+  scroll-behavior: smooth;
   background-color: #f7f7f7;
   height: 90px;
   margin: 3px 0;
