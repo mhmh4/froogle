@@ -46,7 +46,6 @@ export const EXAMPLES = [
   "Cherry, almond, and chocolate",
   "Cherry, almond, and cream cheese",
   "Cherry, almond, and vanilla",
-  "Cherry, lime, and tequila",
   "Chicken, lemon, and rosemary",
   "Chicken, mushroom, and thyme",
   "Chicken, onion, and garlic",
