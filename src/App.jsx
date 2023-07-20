@@ -22,7 +22,7 @@ export default function App() {
 
   const [searchHistory, setSearchHistory] = useState(() => {
     const searchHistory = localStorage.getItem("searchHistory");
-    return searchHistory ? JSON.parse(searchHistory) : [];
+    return JSON.parse(searchHistory) ?? [];
   });
 
   const historyRef = useRef(null);
@@ -39,7 +39,7 @@ export default function App() {
   }, [searchHistory]);
 
   function handleSearchClick() {
-    const isWhitespace = !searchInput.trim()
+    const isWhitespace = !searchInput.trim();
     if (isWhitespace) return;
 
     fetchRecipesAndUpdate();
@@ -80,19 +80,6 @@ export default function App() {
     }
   };
 
-  const projectMapper = (project) => {
-    return (
-      <div
-        className="project"
-        onClick={() => {
-          setSearchInput(project.searchInput);
-        }}
-      >
-        <p>{project.searchInput}</p>
-      </div>
-    );
-  };
-
   let foo = (input) => {
     let output = [];
     for (const [i, element] of input.entries()) {
@@ -100,7 +87,7 @@ export default function App() {
         <div className="recipe">
           <div className="rid">{i + 1}</div>
           <div>{element}</div>
-        </div>,
+        </div>
       );
     }
     return output;
@@ -186,13 +173,30 @@ export default function App() {
 
       <div className="history-wrapper">
         <p>Search history</p>
-        <div ref={historyRef} className="history">{searchHistory.map(projectMapper)}</div>
+        <div ref={historyRef} className="history">
+          {searchHistory.map((historyItem) => {
+            return (
+              <div
+                className="history-item"
+                onClick={() => {
+                  setSearchInput(historyItem.searchInput);
+                }}
+              >
+                <p>{historyItem.searchInput}</p>
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       <div className="results">
         <p>Results</p>
         <div class="results-list">
-          {isLoading ? <PulseLoader className="loader" color="#bbb" /> : message}
+          {isLoading ? (
+            <PulseLoader className="loader" color="#bbb" />
+          ) : (
+            message
+          )}
         </div>
       </div>
     </div>
