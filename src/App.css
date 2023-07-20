@@ -141,7 +141,7 @@ input:focus {
   margin: 3px 0;
 }
 
-.project {
+.history-item {
   text-align: left;
   background-color: #fff;
   font-size: 14px;
@@ -153,11 +153,11 @@ input:focus {
   padding: 5px 0;
 }
 
-.project p {
+.history-item p {
   padding-left: 10px;
 }
 
-.project:hover {
+.history-item:hover {
   background-color: #f3f3f3;
 }
 
