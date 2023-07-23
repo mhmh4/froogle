@@ -5,17 +5,16 @@ import random from "random";
 
 import { EXAMPLES } from "./Examples";
 import { SearchBar } from "./SearchBar";
+import { ErrorMessage } from "./ErrorMessage";
 
 import "./App.css";
-
-function Error({ message }) {
-  return <div className="error">{"Error: " + message}</div>;
-}
 
 export default function App() {
   const [searchInput, setSearchInput] = useState("");
 
   const [message, setMessage] = useState();
+
+  const [errorMessage, setErrorMessage] = useState();
 
   const [isLoading, setIsLoading] = useState(false);
 
@@ -46,34 +45,40 @@ export default function App() {
     if (isWhitespace) {
       return;
     }
-    let timeoutId;
+
+    setMessage();
+    setErrorMessage();
     setIsLoading(true);
+
+    let timeoutId;
     const timeoutPromise = new Promise(() => {
       timeoutId = setTimeout(() => {
         setIsLoading(false);
-        setMessage(
-          <Error message="We're unable to process your request at the moment. Please try again later."></Error>
+        setErrorMessage(
+          <ErrorMessage message="We're unable to process your request at the moment. Please try again later."></ErrorMessage>
         );
         return;
       }, 10000);
     });
     const fetchPromise = fetch("http://localhost:5000/recipes?" + searchInput);
+
     let response = await Promise.race([fetchPromise, timeoutPromise]);
     clearTimeout(timeoutId);
     let text = await response.text();
     let results = JSON.parse(text);
     setIsLoading(false);
+
     if (results.length === 0) {
-      setMessage(
-        <Error message="Recipes cannot be generated for the provided ingredients. Please check your input and try again."></Error>
+      setErrorMessage(
+        <ErrorMessage message="Recipes cannot be generated for the provided ingredients. Please check your input and try again."></ErrorMessage>
       );
-      return;
+    } else {
+      setSearchHistory((prevSearchHistory) => [
+        ...prevSearchHistory,
+        { searchInput },
+      ]);
+      setMessage(foo(results));
     }
-    setSearchHistory((prevSearchHistory) => [
-      ...prevSearchHistory,
-      { searchInput },
-    ]);
-    setMessage(foo(results));
   };
 
   let foo = (input) => {
@@ -143,6 +148,7 @@ export default function App() {
       <div className="results">
         <p>Results</p>
         <div className="results-list">
+          {errorMessage}
           {isLoading ? (
             <PulseLoader className="loader" color="#bbb" />
           ) : (
