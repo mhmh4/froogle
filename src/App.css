@@ -201,11 +201,12 @@ input:focus {
   width: 34em;
 }
 
-.rid {
+.recipe-id {
   padding: 0 10px;
+  padding-right: 5px;
   border-right: 1px solid #cacaca;
   width: 50px;
-  margin-right: 10px;
+  margin-right: 15px;
   color: #888;
 }
 
