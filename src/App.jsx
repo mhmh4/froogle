@@ -48,7 +48,7 @@ export default function App() {
       return;
     }
 
-    setResults();
+    setResults([]);
     setErrorMessage();
     setIsLoading(true);
 
