@@ -1,12 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
-import { HiMagnifyingGlass, HiXMark } from "react-icons/hi2";
 import { PulseLoader } from "react-spinners";
 import random from "random";
 
 import { EXAMPLES } from "./Examples";
 
 import "./App.css";
+import { SearchBar } from "./SearchBar";
 
 function Error({ message }) {
   return <div className="error">{"Error: " + message}</div>;
@@ -14,7 +14,6 @@ function Error({ message }) {
 
 export default function App() {
   const [searchInput, setSearchInput] = useState("");
-  const inputRef = useRef(null);
 
   const [message, setMessage] = useState();
 
@@ -37,13 +36,6 @@ export default function App() {
     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
     scrollToBottom();
   }, [searchHistory]);
-
-  function handleSearchClick() {
-    const isWhitespace = !searchInput.trim();
-    if (isWhitespace) return;
-
-    fetchRecipesAndUpdate();
-  }
 
   const handleTryExampleClick = () => {
     setSearchInput(random.choice(EXAMPLES));
@@ -93,15 +85,6 @@ export default function App() {
     return output;
   };
 
-  const clearInput = () => {
-    setSearchInput("");
-    inputRef.current.focus();
-  };
-
-  const handleChange = (e) => {
-    setSearchInput(e.target.value);
-  };
-
   const handleClearStorageClick = () => {
     localStorage.clear();
     setSearchHistory([]);
@@ -120,7 +103,7 @@ export default function App() {
       <h1 className="logo">froogle</h1>
       <p className="slogan">The home for recipe ideas</p>
 
-      <div className="input-wrapper">
+      {/* <div className="input-wrapper">
         <span className="one">
           <HiMagnifyingGlass
             style={{
@@ -159,8 +142,13 @@ export default function App() {
           onClick={handleSearchClick}
         >
           Search
-        </span>
-      </div>
+        </span
+      </div> */}
+      <SearchBar
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}
+        fetchRecipesAndUpdate={fetchRecipesAndUpdate}
+      />
 
       <div>
         <button className="button2" onClick={handleTryExampleClick}>
