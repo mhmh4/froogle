@@ -15,37 +15,46 @@ openai.api_key = os.environ.get("OPENAI_API_KEY")
 
 
 def is_valid_data(data):
-    INVALID_STRINGS = frozenset(["sorry", "invalid", "valid", "provide", "ingredients", "model", "assist", "unable"])
+    INVALIDATORS = [
+        "assist",
+        "ingredients",
+        "invalid",
+        "model",
+        "provide",
+        "sorry",
+        "unable",
+        "valid",
+    ]
     for d in data:
         tokens = d.split()
         for t in tokens:
-            if t in INVALID_STRINGS:
+            if t in INVALIDATORS:
                 return False
     return True
 
 
-def call_api(input):
-    completion = openai.ChatCompletion.create(
+def call_openai_api(ingredients):
+    response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "user", "content": "I'll give ingredients, give me recipes, just list the recipe names as a numerical list, don't output anything else"},
-            {"role": "user", "content": f"Here are the ingredients: {input}. List recipes, just list the recipe names, nothing else"},
-        ]
+            {
+                "role": "user",
+                "content": f"I'll give ingredients, give me recipes, just list the recipe names as a numerical list, don't output anything else. Here are the ingredients: {ingredients}. List recipes, just list the recipe names, nothing else.",
+            },
+        ],
     )
-    recipe_names = completion.choices[0].message.content
-    recipe_names = recipe_names.split("\n")
-
-    if not is_valid_data(recipe_names):
-        return []
-
-    for i in range(len(recipe_names)):
-        recipe_names[i] = recipe_names[i][3:]
-
-    return recipe_names
+    return response.choices[0].message.content.split("\n")
 
 
 @app.get("/recipes")
 def recipes():
-    query_string = str(flask.request.query_string)
-    response = call_api(query_string)
-    return flask.jsonify(response)
+    ingredients = str(flask.request.query_string)
+    output = call_openai_api(ingredients)
+
+    if not is_valid_data(output):
+        return []
+
+    for i in range(len(output)):
+        output[i] = output[i][3:]  # remove prefix
+
+    return flask.jsonify(output)
