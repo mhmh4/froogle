@@ -12,18 +12,15 @@ import "./App.css";
 export default function App() {
   const [searchInput, setSearchInput] = useState("");
 
-  const [results, setResults] = useState([]);
-
-  const [errorMessage, setErrorMessage] = useState();
-
-  const [isLoading, setIsLoading] = useState(false);
-
   const [searchHistory, setSearchHistory] = useState(() => {
     const searchHistory = localStorage.getItem("searchHistory");
     return JSON.parse(searchHistory) ?? [];
   });
-
   const historyRef = useRef(null);
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState();
+  const [results, setResults] = useState([]);
 
   const scrollToBottom = () => {
     if (historyRef.current) {
@@ -38,6 +35,11 @@ export default function App() {
 
   const handleTryExampleClick = () => {
     setSearchInput(random.choice(EXAMPLES));
+  };
+
+  const handleClearStorageClick = () => {
+    localStorage.clear();
+    setSearchHistory([]);
   };
 
   const handleSearchClick = async () => {
@@ -79,11 +81,6 @@ export default function App() {
       ]);
       setResults(recipes);
     }
-  };
-
-  const handleClearStorageClick = () => {
-    localStorage.clear();
-    setSearchHistory([]);
   };
 
   return (
@@ -142,7 +139,7 @@ export default function App() {
             results.map((recipe, index) => {
               return (
                 <div className="recipe">
-                  <div className="rid">{index + 1}</div>
+                  <div className="recipe-id">{index + 1}</div>
                   <div>{recipe}</div>
                 </div>
               );
