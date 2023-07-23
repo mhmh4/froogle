@@ -4,9 +4,9 @@ import { PulseLoader } from "react-spinners";
 import random from "random";
 
 import { EXAMPLES } from "./Examples";
+import { SearchBar } from "./SearchBar";
 
 import "./App.css";
-import { SearchBar } from "./SearchBar";
 
 function Error({ message }) {
   return <div className="error">{"Error: " + message}</div>;
@@ -103,47 +103,6 @@ export default function App() {
       <h1 className="logo">froogle</h1>
       <p className="slogan">The home for recipe ideas</p>
 
-      {/* <div className="input-wrapper">
-        <span className="one">
-          <HiMagnifyingGlass
-            style={{
-              fontSize: "20px",
-              zIndex: 0,
-              top: 4.5,
-              left: 5,
-              position: "relative",
-              color: "#aaa",
-            }}
-          />
-        </span>
-        <input
-          placeholder="Enter some ingredients here..."
-          value={searchInput}
-          onChange={handleChange}
-          ref={inputRef}
-          autoFocus
-        />
-        <span className="two">
-          <button
-            className="clear-input-button"
-            onClick={clearInput}
-            style={{
-              visibility: searchInput.length == 0 ? "hidden" : "unset",
-            }}
-          >
-            <HiXMark
-              style={{ fontSize: "22px", position: "relative", top: 1.5 }}
-            />
-          </button>
-        </span>
-        <span
-          tabIndex={0}
-          className="search-button"
-          onClick={handleSearchClick}
-        >
-          Search
-        </span
-      </div> */}
       <SearchBar
         searchInput={searchInput}
         setSearchInput={setSearchInput}
@@ -179,7 +138,7 @@ export default function App() {
 
       <div className="results">
         <p>Results</p>
-        <div class="results-list">
+        <div className="results-list">
           {isLoading ? (
             <PulseLoader className="loader" color="#bbb" />
           ) : (
