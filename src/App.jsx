@@ -12,7 +12,7 @@ import "./App.css";
 export default function App() {
   const [searchInput, setSearchInput] = useState("");
 
-  const [message, setMessage] = useState();
+  const [results, setResults] = useState([]);
 
   const [errorMessage, setErrorMessage] = useState();
 
@@ -46,7 +46,7 @@ export default function App() {
       return;
     }
 
-    setMessage();
+    setResults();
     setErrorMessage();
     setIsLoading(true);
 
@@ -65,10 +65,10 @@ export default function App() {
     let response = await Promise.race([fetchPromise, timeoutPromise]);
     clearTimeout(timeoutId);
     let text = await response.text();
-    let results = JSON.parse(text);
+    let recipes = JSON.parse(text);
     setIsLoading(false);
 
-    if (results.length === 0) {
+    if (recipes.length === 0) {
       setErrorMessage(
         <ErrorMessage message="Recipes cannot be generated for the provided ingredients. Please check your input and try again."></ErrorMessage>
       );
@@ -77,21 +77,8 @@ export default function App() {
         ...prevSearchHistory,
         { searchInput },
       ]);
-      setMessage(foo(results));
+      setResults(recipes);
     }
-  };
-
-  let foo = (input) => {
-    let output = [];
-    for (const [i, element] of input.entries()) {
-      output.push(
-        <div className="recipe">
-          <div className="rid">{i + 1}</div>
-          <div>{element}</div>
-        </div>
-      );
-    }
-    return output;
   };
 
   const handleClearStorageClick = () => {
@@ -149,11 +136,17 @@ export default function App() {
         <p>Results</p>
         <div className="results-list">
           {errorMessage}
-          {isLoading ? (
-            <PulseLoader className="loader" color="#bbb" />
-          ) : (
-            message
-          )}
+
+          {isLoading && <PulseLoader className="loader" color="#bbb" />}
+          {!isLoading &&
+            results.map((recipe, index) => {
+              return (
+                <div className="recipe">
+                  <div className="rid">{index + 1}</div>
+                  <div>{recipe}</div>
+                </div>
+              );
+            })}
         </div>
       </div>
     </div>
