@@ -41,7 +41,11 @@ export default function App() {
     setSearchInput(random.choice(EXAMPLES));
   };
 
-  const fetchRecipesAndUpdate = async () => {
+  const handleSearchClick = async () => {
+    const isWhitespace = !searchInput.trim();
+    if (isWhitespace) {
+      return;
+    }
     let timeoutId;
     setIsLoading(true);
     const timeoutPromise = new Promise(() => {
@@ -51,7 +55,7 @@ export default function App() {
           <Error message="We're unable to process your request at the moment. Please try again later."></Error>
         );
         return;
-      }, 12000);
+      }, 10000);
     });
     const fetchPromise = fetch("http://localhost:5000/recipes?" + searchInput);
     let response = await Promise.race([fetchPromise, timeoutPromise]);
@@ -63,13 +67,13 @@ export default function App() {
       setMessage(
         <Error message="Recipes cannot be generated for the provided ingredients. Please check your input and try again."></Error>
       );
-    } else {
-      setSearchHistory((prevSearchHistory) => [
-        ...prevSearchHistory,
-        { searchInput },
-      ]);
-      setMessage(foo(results));
+      return;
     }
+    setSearchHistory((prevSearchHistory) => [
+      ...prevSearchHistory,
+      { searchInput },
+    ]);
+    setMessage(foo(results));
   };
 
   let foo = (input) => {
@@ -106,7 +110,7 @@ export default function App() {
       <SearchBar
         searchInput={searchInput}
         setSearchInput={setSearchInput}
-        fetchRecipesAndUpdate={fetchRecipesAndUpdate}
+        handleSearchClick={handleSearchClick}
       />
 
       <div>

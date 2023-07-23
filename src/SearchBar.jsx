@@ -2,11 +2,7 @@ import { useRef } from "react";
 
 import { HiMagnifyingGlass, HiXMark } from "react-icons/hi2";
 
-export function SearchBar({
-  searchInput,
-  setSearchInput,
-  fetchRecipesAndUpdate,
-}) {
+export function SearchBar({ searchInput, setSearchInput, handleSearchClick }) {
   const inputRef = useRef(null);
 
   const clearInput = () => {
@@ -17,13 +13,6 @@ export function SearchBar({
   const handleChange = (e) => {
     setSearchInput(e.target.value);
   };
-
-  function handleSearchClick() {
-    const isWhitespace = !searchInput.trim();
-    if (isWhitespace) return;
-
-    fetchRecipesAndUpdate();
-  }
 
   return (
     <div className="input-wrapper">
