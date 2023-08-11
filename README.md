@@ -45,6 +45,7 @@ npm install
 
 ## Usage
 
+1\) In one terminal, navigate to the `api` directory (activate your virtual environment if you're using one), then run the following Flask command:
 
 ```
 flask run
